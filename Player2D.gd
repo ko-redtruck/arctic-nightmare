@@ -23,8 +23,14 @@ func _physics_process(delta):
 	velocity.y += GRAVITY * delta
 	#Vecotor2(0, -1) is telling Godot the up direction
 	move_and_slide(velocity, Vector2(0, -1))
-	print(is_on_floor(), is_on_wall(), is_on_ceiling())
+
 	if is_on_floor():
 		velocity.y = 0
 	if (is_on_floor() or is_on_wall()) and Input.is_action_just_pressed("ui_up"):
 		velocity.y += -JUMP_SPEED
+		
+	if Input.is_action_just_pressed("ui_pickup"):
+		for node in $PickupArea.get_overlapping_bodies():
+			if node.is_in_group("Items"):
+				print(node)
+

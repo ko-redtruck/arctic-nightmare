@@ -1,11 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player2D.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 35.7771
+
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 30.0
 height = 0.0
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 262.069
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 445.5, 28.75 )
@@ -15,9 +21,25 @@ extents = Vector2( 28.5, 66.5 )
 
 [node name="TestWorld" type="Node2D"]
 
+[node name="Item" type="StaticBody2D" parent="." groups=["Items"]]
+position = Vector2( 202, 272 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="Item"]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+position = Vector2( 26, -98 )
+shape = SubResource( 5 )
+
 [node name="Player2D" type="KinematicBody2D" parent="."]
+position = Vector2( 162, 117 )
 script = ExtResource( 1 )
 WALK_SPEED = 400
+GRAVITY = 600
 
 [node name="Sprite" type="Sprite" parent="Player2D"]
 position = Vector2( 174, 168 )
@@ -27,7 +49,19 @@ texture = ExtResource( 2 )
 position = Vector2( 174, 167 )
 shape = SubResource( 2 )
 
+[node name="PickupArea" type="Area2D" parent="Player2D"]
+position = Vector2( 173, 171 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2D/PickupArea"]
+position = Vector2( 4, -4 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -166, 103 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 434, 282.25 )
@@ -56,3 +90,5 @@ shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[connection signal="tree_entered" from="Player2D/CollisionShape2D" to="Player2D" method="_on_CollisionShape2D_tree_entered"]
