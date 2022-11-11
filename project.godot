@@ -11,7 +11,17 @@ config_version=4
 [application]
 
 config/name="Arctic-nightmare"
+run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameState="*res://scenes/GameState.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [physics]
 
