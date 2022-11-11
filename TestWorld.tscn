@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 30.0
+height = 0.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 445.5, 28.75 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28.5, 66.5 )
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Player2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+WALK_SPEED = 400
+
+[node name="Sprite" type="Sprite" parent="Player2D"]
+position = Vector2( 174, 168 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2D"]
+position = Vector2( 174, 167 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 434, 282.25 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 444, 282 )
+scale = Vector2( 13.6406, 1 )
+texture = ExtResource( 2 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 78, -109 )
+scale = Vector2( 1, 4 )
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 0, 37.5 )
+scale = Vector2( 1, 2.17188 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( -1, 38 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
