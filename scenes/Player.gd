@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export (int) var WALK_SPEED = 100
-export (int) var GRAVITY = 300
-export (int) var JUMP_SPEED = 300
-export (int) var MAX_WALK_SPEED = 600
-export (int) var FRICTION = 200
+var WALK_SPEED = 1
+var GRAVITY = 20
+var JUMP_SPEED = 10
+var MAX_WALK_SPEED = 6
+var FRICTION = 2
 
 var velocity = Vector2()
 
@@ -16,6 +16,7 @@ func drop_equipped_item():
 	$ItemHolder.remove_child(current_item)
 	current_item.get_node("CollisionShape2D").disabled = false
 	current_item.set_mode(RigidBody2D.MODE_RIGID)
+	current_item.sleeping = false
 	current_item.position = self.position + $ItemHolder.position
 	self.get_parent().add_child(current_item)
 
@@ -65,11 +66,14 @@ func _physics_process(delta):
 		velocity.x += walk_force
 		
 	velocity.x = clamp(velocity.x, -MAX_WALK_SPEED, MAX_WALK_SPEED)
+	print(GRAVITY)
 	velocity.y += GRAVITY * delta
+	print(velocity)
 	#Vecotor2(0, -1) is telling Godot the up direction
 	move_and_slide(velocity, Vector2(0, -1))
 
 	if is_on_floor():
+		print("on floor")
 		velocity.y = 0
 	if (is_on_floor() or is_on_wall()) and Input.is_action_just_pressed("ui_up"):
 		velocity.y = -JUMP_SPEED

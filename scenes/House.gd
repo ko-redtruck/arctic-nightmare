@@ -1,7 +1,7 @@
 extends Node2D
 
 export var room_size = Vector2(9, 6)
-export var wall_thickness = .125
+export var wall_thickness = .1
 
 var rooms = [
 	preload("res://scenes/rooms/Kitchen.tscn"),
@@ -19,7 +19,7 @@ var wall_connectors = [
 	preload("res://scenes/wall_connectors/door.tscn"),
 ]
 var ceiling_connectors = [
-	preload("res://scenes/ceiling_connectors/ladderLeft.tscn")
+	preload("res://scenes/ceiling_connectors/ladder.tscn")
 ]
 
 func _ready():
