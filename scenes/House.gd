@@ -1,6 +1,7 @@
 extends Node2D
 
 export var room_size = Vector2(9, 6)
+export var wall_thickness = .5
 
 var rooms = [
 	preload("res://scenes/rooms/Kitchen.tscn"),
@@ -23,16 +24,20 @@ func init_rooms():
 	rooms.shuffle()
 	
 	# instanciated_rooms = []
-	var position = -room_size
+	# var position = -room_size
+	var i = 0
 	for room in rooms:
+		var position = index_to_vec(i)
+		
 		var instance = room.instance()
 		instance.position = position
 		add_child(instance)
+		i+=1
 		
-		position.x += room_size.x
-		if position.x > room_size.x:
-			position.x = -room_size.x
-			position.y += room_size.y
+		#position.x += room_size.x + wall_thickness
+		#if position.x > room_size.x:
+		#	position.x = -room_size.x
+		#	position.y += room_size.y + wall_thickness
 			
 	# place doors procedurally
 	var room_connections = dfs()
@@ -41,9 +46,17 @@ func init_rooms():
 		var v1 = index_to_vec(connection[0])
 		var v2 = index_to_vec(connection[1])
 		var wall_center = (v1 + v2)/2
-		var wall = load('res://scenes/TempWallConnector.tscn').instance()
+		
+		var is_horizontal = abs(connection[0] - connection[1]) == 1
+		
+		var wall
+		if !is_horizontal:
+			wall = load('res://scenes/HorizontalWallWithDoor.tscn').instance()
+		else:
+			wall = load('res://scenes/VerticalWallWithDoor.tscn').instance()
+		
 		wall.position = wall_center
-		wall.set_name("WallConnector" + str(connection[0], connection[1]))
+		wall.set_name("WallWithDoor" + str(connection[0], "-", connection[1]))
 		# print(connection)
 		# print(v1)
 		# print(v2)
@@ -64,24 +77,23 @@ func dfs():
 		# print(done_list)
 		
 		up_next_list.shuffle()
-		var t = up_next_list.pop_front()
+		var selected_room = up_next_list.pop_front()
 		
-		var add_next = neighbours_in_bounds(t)
+		var neighbours = neighbours_in_bounds(selected_room)
+		var add_next = []
 		
 		# filter already done
-		for i in add_next:
-			if done_list.has(i) or up_next_list.has(i):
-				add_next.erase(i)
+		for neighbour in neighbours:
+			if !(done_list.has(neighbour) or up_next_list.has(neighbour)):
+				add_next.push_back(neighbour)
 				
 		# add edges
-		for i in add_next:
-			edge_list.push_back([t, i])
+		for node in add_next:
+			edge_list.push_back([selected_room, node])
 		
 		up_next_list.append_array(add_next)
 		
-		done_list.push_back(t)
-	
-	print("TODO")
+		done_list.push_back(selected_room)
 	
 	return edge_list
 	
@@ -102,4 +114,4 @@ func neighbours_in_bounds(index):
 	return neighbours
 
 func index_to_vec(index):
-	return Vector2((index % 3) - 0.5, int(index / 3) - 0.5) * Vector2(9, 6) - Vector2(4.5, 3)
+	return Vector2((index % 3) - 0.5, int(index / 3) - 0.5) * (Vector2(9, 6) + Vector2(wall_thickness, wall_thickness)) - Vector2(4.5, 3)
