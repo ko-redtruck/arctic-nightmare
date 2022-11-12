@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 89.0
+margin_left = 910.0
+margin_top = 560.0
+margin_right = 1374.0
+margin_bottom = 761.0
+text = "Hello WORLD"
