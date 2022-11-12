@@ -30,10 +30,12 @@ energy = 0.7
 [node name="Toaster" parent="." index="3" instance=ExtResource( 5 )]
 position = Vector2( -3, 1 )
 sleeping = true
+is_always_usable = null
 
 [node name="Toaster" parent="." index="4" instance=ExtResource( 5 )]
 position = Vector2( -3, 1 )
 sleeping = true
+is_always_usable = null
 
 [node name="Light2D2" type="Light2D" parent="." index="5"]
 texture = ExtResource( 6 )
