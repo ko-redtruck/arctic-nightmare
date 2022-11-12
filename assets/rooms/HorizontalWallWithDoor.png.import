@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.stex"
+path="res://.import/HorizontalWallWithDoor.png-cf1eaec6e489282136d366cdea182912.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/scientist.png"
-dest_files=[ "res://.import/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.stex" ]
+source_file="res://assets/rooms/HorizontalWallWithDoor.png"
+dest_files=[ "res://.import/HorizontalWallWithDoor.png-cf1eaec6e489282136d366cdea182912.stex" ]
 
 [params]
 
