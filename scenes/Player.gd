@@ -40,6 +40,7 @@ func equip(item):
  
 func kill():
 	print("Player died")
+	GameState.player_killed()
 	
 func get_equipped_item():
 	if $ItemHolder.get_child_count() < 1:
@@ -62,7 +63,7 @@ func get_nearest_item_in_world():
 func _physics_process(delta):
 	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))	
 	if abs(walk_force) < 0.2 * WALK_SPEED:
-		print('Slowing down', walk_force)
+
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
 		velocity.x = clamp(velocity.x  + walk_force * delta, -MAX_WALK_SPEED, MAX_WALK_SPEED)
@@ -71,7 +72,6 @@ func _physics_process(delta):
 	move_and_slide(velocity, Vector2(0, -1))
 
 	if is_on_floor():
-		print("on floor")
 		velocity.y = 0
 		was_walljump_used = false
 	if Input.is_action_just_pressed("ui_up"):

@@ -5,6 +5,7 @@
 [ext_resource path="res://assets/rooms/KitchenR.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/lights/long_light.jpeg" type="Texture" id=5]
+[ext_resource path="res://items/Toaster.tscn" type="PackedScene" id=5]
 
 [node name="Kitchen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -31,3 +32,11 @@ texture = ExtResource( 5 )
 offset = Vector2( -2, 0.5 )
 texture_scale = 0.05
 energy = 0.7
+
+[node name="Toaster" parent="." index="2" instance=ExtResource( 5 )]
+position = Vector2( -3, 1 )
+sleeping = true
+
+[node name="Toaster" parent="." index="2" instance=ExtResource( 5 )]
+position = Vector2( -3, 1 )
+sleeping = true
