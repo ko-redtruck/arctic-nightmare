@@ -27,7 +27,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = 0
 	if (is_on_floor() or is_on_wall()) and Input.is_action_just_pressed("ui_up"):
-		velocity.y += -JUMP_SPEED
+		velocity.y = -JUMP_SPEED
 		
 	if Input.is_action_just_pressed("ui_pickup"):
 		for node in $PickupArea.get_overlapping_bodies():

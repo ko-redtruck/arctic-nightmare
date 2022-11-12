@@ -1,7 +1,7 @@
 extends Node2D
 
 export var room_size = Vector2(9, 6)
-export var wall_thickness = .5
+export var wall_thickness = .1
 
 var rooms = [
 	preload("res://scenes/rooms/Kitchen.tscn"),
@@ -49,25 +49,41 @@ func init_rooms():
 	# place doors procedurally
 	var room_connections = dfs()
 	# print(room_connections)
-	for connection in room_connections:
-		var v1 = index_to_vec(connection[0])
-		var v2 = index_to_vec(connection[1])
-		var connection_center = (v1 + v2)/2
-		var connection_instance = null
-		if v1.y == v2.y:
-			var index = randi() % len(wall_connectors)
-			connection_instance = wall_connectors[index].instance()
-		else:
-			var index = randi() % len(ceiling_connectors)
-			connection_instance = ceiling_connectors[index].instance()
-		connection_instance.position = connection_center
-		connection_instance.set_name("RoomConnector" + str(connection[0], "-", connection[1]))
-		# print(connection)
-		# print(v1)
-		# print(v2)
-		# print(wall_center)
+	for i1 in range(len(rooms)):
+		for i2 in range(i1):
+			if not (i2 in neighbours_in_bounds(i1)):
+				continue
+			
+			var v1 = index_to_vec(i1)
+			var v2 = index_to_vec(i2)
+			var connection_center = (v1 + v2)/2
+			var connection_instance = null
+			if is_connected(room_connections, i1, i2):
+				if v1.y == v2.y:
+					var index = randi() % len(wall_connectors)
+					connection_instance = wall_connectors[index].instance()
+				else:
+					var index = randi() % len(ceiling_connectors)
+					connection_instance = ceiling_connectors[index].instance()
+			else:
+				if v1.y == v2.y:
+					connection_instance = preload("res://scenes/wall_connectors/wall.tscn").instance()
+				else:
+					connection_instance = preload("res://scenes/ceiling_connectors/ceiling.tscn") .instance()
+			connection_instance.position = connection_center
+			connection_instance.set_name("RoomConnector" + str(i1, "-", i2))
+			# print(connection)
+			# print(v1)
+			# print(v2)
+			# print(wall_center)
 
-		add_child(connection_instance)
+			add_child(connection_instance)
+
+func is_connected(connections, i1, i2):
+	for connection in connections:
+		if i1 == connection[0] and i2 == connection[1] or i2 == connection[0] and i1 == connection[1]:
+			return true
+	return false
 
 func dfs():
 	var edge_list = []
@@ -101,6 +117,7 @@ func dfs():
 
 		done_list.push_back(selected_room)
 
+	print(edge_list)
 	return edge_list
 
 func neighbours_in_bounds(index):
