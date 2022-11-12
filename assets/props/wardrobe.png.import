@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/co-working_space.png-86c99a4643927638b6f7984e29340d9d.stex"
+path="res://.import/wardrobe.png-0af4a6b330e6d60ec086b75938fd7de7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/co-working_space.png"
-dest_files=[ "res://.import/co-working_space.png-86c99a4643927638b6f7984e29340d9d.stex" ]
+source_file="res://assets/props/wardrobe.png"
+dest_files=[ "res://.import/wardrobe.png-0af4a6b330e6d60ec086b75938fd7de7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

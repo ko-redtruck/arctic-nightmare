@@ -14,6 +14,13 @@ var rooms = [
 	preload("res://scenes/rooms/CoWorkingSpace.tscn"),
 ]
 
+var wall_connectors = [
+	preload("res://scenes/wall_connectors/door.tscn"),
+]
+var ceiling_connectors = [
+	preload("res://scenes/ceiling_connectors/ladder.tscn")
+]
+
 func _ready():
 	init_rooms()
 
@@ -40,20 +47,27 @@ func init_rooms():
 	for connection in room_connections:
 		var v1 = index_to_vec(connection[0])
 		var v2 = index_to_vec(connection[1])
-		var wall_center = (v1 + v2)/2
-		var wall = load('res://scenes/TempWallConnector.tscn').instance()
-		wall.position = wall_center
-		wall.set_name("WallConnector" + str(connection[0], connection[1]))
+		var connection_center = (v1 + v2)/2
+		var connection_instance = null
+		if v1.y == v2.y:
+			var index = randi() % len(wall_connectors)
+			connection_instance = wall_connectors[index].instance()
+		else:
+			var index = randi() % len(ceiling_connectors)
+			connection_instance = ceiling_connectors[index].instance()
+		connection_instance.position = connection_center
+		connection_instance.set_name("RoomConnector" + str(connection[0], connection[1]))
 		# print(connection)
 		# print(v1)
 		# print(v2)
 		# print(wall_center)
 		
-		add_child(wall)
-	
+		add_child(connection_instance)
+
 func dfs():
 	var edge_list = []
 	
+	randomize()
 	var start_room = randi() % 9
 	
 	var done_list = []
@@ -80,8 +94,6 @@ func dfs():
 		up_next_list.append_array(add_next)
 		
 		done_list.push_back(t)
-	
-	print("TODO")
 	
 	return edge_list
 	
