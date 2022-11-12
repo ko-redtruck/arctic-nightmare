@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/House.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=6]
 [ext_resource path="res://items/Knife.tscn" type="PackedScene" id=7]
+[ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -42,5 +43,7 @@ autostart = true
 color = Color( 0.392157, 0.392157, 0.392157, 0.392157 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 8 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
