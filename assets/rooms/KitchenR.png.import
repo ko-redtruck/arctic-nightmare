@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.stex"
+path="res://.import/KitchenR.png-d999b23a07a79980efcd85f3e87b279a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/scientist.png"
-dest_files=[ "res://.import/scientist.png-bf5a7b6d3ec309ec331292a5c210584f.stex" ]
+source_file="res://assets/rooms/KitchenR.png"
+dest_files=[ "res://.import/KitchenR.png-d999b23a07a79980efcd85f3e87b279a.stex" ]
 
 [params]
 
