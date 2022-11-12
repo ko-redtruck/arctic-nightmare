@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/HouseRoom.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/rooms/Medbay.gd" type="Script" id=2]
-[ext_resource path="res://assets/rooms/medbay.png" type="Texture" id=3]
+[ext_resource path="res://assets/rooms/MedbayR.png" type="Texture" id=3]
 
 [node name="Medbay" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
