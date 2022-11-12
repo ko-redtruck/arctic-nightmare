@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+max_value = 200.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.990276, 200 ), 385.696, 0.0, 0, 0 ]
+
+[node name="Snowstorm" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 10000
+lifetime_randomness = 0.09
+direction = Vector2( 0, -1 )
+spread = 180.0
+initial_velocity = 89.78
+initial_velocity_random = 0.19
+angular_velocity = 720.0
+angular_velocity_random = 0.29
+linear_accel = -200.0
+radial_accel = -100.0
+radial_accel_random = 0.67
+tangential_accel = -400.0
+tangential_accel_random = 0.24
+scale_amount_curve = SubResource( 1 )
+anim_speed = 43.99
+anim_speed_curve = SubResource( 2 )
