@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
-var WALK_SPEED = 1
-var GRAVITY = 20
-var JUMP_SPEED = 10
-var MAX_WALK_SPEED = 6
-var FRICTION = 2
+var WALK_SPEED = 40
+var GRAVITY = 30
+var JUMP_SPEED = 14
+var MAX_WALK_SPEED = 8
+var FRICTION = 50
 
 var velocity = Vector2()
+var was_walljump_used = false
 
 func _ready():
 	pass # Replace with function body.
@@ -59,32 +60,33 @@ func get_nearest_item_in_world():
 	return nearest_item
 				
 func _physics_process(delta):
-	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
+	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))	
 	if abs(walk_force) < 0.2 * WALK_SPEED:
-		velocity.x = move_toward(walk_force, 0, FRICTION * delta)
+		print('Slowing down', walk_force)
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
-		velocity.x += walk_force
-		
-	velocity.x = clamp(velocity.x, -MAX_WALK_SPEED, MAX_WALK_SPEED)
-	print(GRAVITY)
+		velocity.x = clamp(velocity.x  + walk_force * delta, -MAX_WALK_SPEED, MAX_WALK_SPEED)
 	velocity.y += GRAVITY * delta
-	print(velocity)
 	#Vecotor2(0, -1) is telling Godot the up direction
 	move_and_slide(velocity, Vector2(0, -1))
 
 	if is_on_floor():
 		print("on floor")
 		velocity.y = 0
-	if (is_on_floor() or is_on_wall()) and Input.is_action_just_pressed("ui_up"):
-		velocity.y = -JUMP_SPEED
-		
+		was_walljump_used = false
+	if Input.is_action_just_pressed("ui_up"):
+		if is_on_floor():
+			velocity.y = -JUMP_SPEED
+		elif is_on_wall() and was_walljump_used == false:
+			was_walljump_used = true
+			velocity.y = -JUMP_SPEED
+			velocity.x += clamp(-velocity.x * MAX_WALK_SPEED * 20, -MAX_WALK_SPEED * 5, MAX_WALK_SPEED * 5)
 	if Input.is_action_just_pressed("ui_pick_up_or_drop"):
 		var item = get_nearest_item_in_world()
 		if item != null:
 			item.pick_up_on(self)
 		elif self.has_equipped_item():
 			self.drop_equipped_item()
-	
 	if Input.is_action_just_pressed("ui_use"):
 		if self.has_equipped_item():
 			self.use_equipped_item()
