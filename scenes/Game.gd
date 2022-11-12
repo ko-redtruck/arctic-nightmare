@@ -5,6 +5,7 @@ func _ready():
 
 func start_level():
 	var effects = Effects.all
+	get_node("AudioStreamPlayer").play()
 
 func _on_Timer_timeout():
 	if $Player2D.position.x < 0:
