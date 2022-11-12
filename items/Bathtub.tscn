@@ -6,6 +6,7 @@
 extents = Vector2( 0.6, 0.6 )
 
 [node name="Bathtub" type="StaticBody2D" groups=["Bathtub"]]
+scale = Vector2( 2, 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.02, 0.02 )

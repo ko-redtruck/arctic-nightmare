@@ -17,7 +17,7 @@ __meta__ = {
 }
 
 [node name="Bathtub" parent="." index="1" instance=ExtResource( 5 )]
-position = Vector2( -2, 2.4 )
+position = Vector2( -2, 1.8 )
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 texture = ExtResource( 4 )
