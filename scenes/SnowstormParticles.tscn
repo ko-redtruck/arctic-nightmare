@@ -21,5 +21,6 @@ angular_velocity = 720.0
 angular_velocity_random = 0.29
 tangential_accel_random = 0.24
 scale_amount = 0.02
+scale_amount_random = 0.01
 anim_speed = 43.99
 anim_speed_curve = SubResource( 2 )

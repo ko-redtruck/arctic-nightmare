@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/sounds/storm.wav" type="AudioStream" id=7]
 [ext_resource path="res://scenes/SnowstormParticles.tscn" type="PackedScene" id=8]
 [ext_resource path="res://items/Knife.tscn" type="PackedScene" id=9]
 
