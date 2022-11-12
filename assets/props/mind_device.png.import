@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stove.png-e8abb10eabc7399da6391cc6e1424ddf.stex"
+path="res://.import/mind_device.png-a533e8deec21a2a7a8213ccff4c7b86c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/props/stove.png"
-dest_files=[ "res://.import/stove.png-e8abb10eabc7399da6391cc6e1424ddf.stex" ]
+source_file="res://assets/props/mind_device.png"
+dest_files=[ "res://.import/mind_device.png-a533e8deec21a2a7a8213ccff4c7b86c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

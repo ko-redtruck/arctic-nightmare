@@ -1,12 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="Curve" id=2]
 max_value = 200.0
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.990276, 200 ), 385.696, 0.0, 0, 0 ]
 
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 0, 100, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.55
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
 [node name="Snowstorm" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+z_index = -1
 amount = 10000
 speed_scale = 0.1
 lifetime_randomness = 0.09
@@ -24,3 +37,9 @@ scale_amount = 0.02
 scale_amount_random = 0.01
 anim_speed = 43.99
 anim_speed_curve = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 0.05, 0.05 )
+z_index = -1
+amount = 100
+process_material = SubResource( 3 )

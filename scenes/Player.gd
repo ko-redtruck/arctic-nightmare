@@ -5,9 +5,14 @@ var GRAVITY = 30
 var JUMP_SPEED = 14
 var MAX_WALK_SPEED = 8
 var FRICTION = 50
+var LADDER_SPEED = 2
 
 var velocity = Vector2()
 var was_walljump_used = false
+
+var is_on_ladder = false
+
+var _gravity = GRAVITY
 
 func _ready():
 	pass # Replace with function body.
@@ -63,14 +68,21 @@ func get_nearest_item_in_world():
 func _physics_process(delta):
 	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))	
 	if abs(walk_force) < 0.2 * WALK_SPEED:
-
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 	else:
 		velocity.x = clamp(velocity.x  + walk_force * delta, -MAX_WALK_SPEED, MAX_WALK_SPEED)
-	velocity.y += GRAVITY * delta
+	velocity.y += _gravity * delta
 	#Vecotor2(0, -1) is telling Godot the up direction
+	
+	if is_on_ladder:
+		_gravity = 0
+		velocity.y += Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		velocity.y *= .9
+	else:
+		_gravity = GRAVITY
+		
 	move_and_slide(velocity, Vector2(0, -1))
-
+		
 	if is_on_floor():
 		velocity.y = 0
 		was_walljump_used = false
@@ -81,6 +93,8 @@ func _physics_process(delta):
 			was_walljump_used = true
 			velocity.y = -JUMP_SPEED
 			velocity.x += clamp(-velocity.x * MAX_WALK_SPEED * 20, -MAX_WALK_SPEED * 5, MAX_WALK_SPEED * 5)
+		elif is_on_ladder:
+			velocity.y = -LADDER_SPEED
 	if Input.is_action_just_pressed("ui_pick_up_or_drop"):
 		var item = get_nearest_item_in_world()
 		if item != null:
@@ -91,3 +105,11 @@ func _physics_process(delta):
 		if self.has_equipped_item():
 			self.use_equipped_item()
 			
+
+func _on_LadderArea_area_entered(area):
+	is_on_ladder = true
+	if velocity.y > 0:
+		velocity.y = 0
+
+func _on_LadderArea_area_exited(area):
+	is_on_ladder = false
