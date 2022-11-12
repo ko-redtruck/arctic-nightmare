@@ -1,7 +1,7 @@
 extends Node2D
 
 export var room_size = Vector2(9, 6)
-export var wall_thickness = .5
+export var wall_thickness = .1
 
 var rooms = [
 	preload("res://scenes/rooms/Kitchen.tscn"),
@@ -15,6 +15,13 @@ var rooms = [
 	preload("res://scenes/rooms/CoWorkingSpace.tscn"),
 ]
 
+var wall_connectors = [
+	preload("res://scenes/wall_connectors/door.tscn"),
+]
+var ceiling_connectors = [
+	preload("res://scenes/ceiling_connectors/ladder.tscn")
+]
+
 func _ready():
 	init_rooms()
 
@@ -22,95 +29,111 @@ func init_rooms():
 	# shuffle
 	randomize()
 	rooms.shuffle()
-	
+
 	# instanciated_rooms = []
 	# var position = -room_size
 	var i = 0
 	for room in rooms:
 		var position = index_to_vec(i)
-		
+
 		var instance = room.instance()
 		instance.position = position
 		add_child(instance)
 		i+=1
-		
+
 		#position.x += room_size.x + wall_thickness
 		#if position.x > room_size.x:
 		#	position.x = -room_size.x
 		#	position.y += room_size.y + wall_thickness
-			
+
 	# place doors procedurally
 	var room_connections = dfs()
 	# print(room_connections)
-	for connection in room_connections:
-		var v1 = index_to_vec(connection[0])
-		var v2 = index_to_vec(connection[1])
-		var wall_center = (v1 + v2)/2
-		
-		var is_horizontal = abs(connection[0] - connection[1]) == 1
-		
-		var wall
-		if !is_horizontal:
-			wall = load('res://scenes/HorizontalWallWithDoor.tscn').instance()
-		else:
-			wall = load('res://scenes/VerticalWallWithDoor.tscn').instance()
-		
-		wall.position = wall_center
-		wall.set_name("WallWithDoor" + str(connection[0], "-", connection[1]))
-		# print(connection)
-		# print(v1)
-		# print(v2)
-		# print(wall_center)
-		
-		add_child(wall)
-	
+	for i1 in range(len(rooms)):
+		for i2 in range(i1):
+			if not (i2 in neighbours_in_bounds(i1)):
+				continue
+			
+			var v1 = index_to_vec(i1)
+			var v2 = index_to_vec(i2)
+			var connection_center = (v1 + v2)/2
+			var connection_instance = null
+			if is_connected(room_connections, i1, i2):
+				if v1.y == v2.y:
+					var index = randi() % len(wall_connectors)
+					connection_instance = wall_connectors[index].instance()
+				else:
+					var index = randi() % len(ceiling_connectors)
+					connection_instance = ceiling_connectors[index].instance()
+			else:
+				if v1.y == v2.y:
+					connection_instance = preload("res://scenes/wall_connectors/wall.tscn").instance()
+				else:
+					connection_instance = preload("res://scenes/ceiling_connectors/ceiling.tscn") .instance()
+			connection_instance.position = connection_center
+			connection_instance.set_name("RoomConnector" + str(i1, "-", i2))
+			# print(connection)
+			# print(v1)
+			# print(v2)
+			# print(wall_center)
+
+			add_child(connection_instance)
+
+func is_connected(connections, i1, i2):
+	for connection in connections:
+		if i1 == connection[0] and i2 == connection[1] or i2 == connection[0] and i1 == connection[1]:
+			return true
+	return false
+
 func dfs():
 	var edge_list = []
-	
+
+	randomize()
 	var start_room = randi() % 9
-	
+
 	var done_list = []
 	var up_next_list = [start_room]
-	
+
 	while done_list.size() < 9:
 		# print(up_next_list)
 		# print(done_list)
-		
+
 		up_next_list.shuffle()
 		var selected_room = up_next_list.pop_front()
-		
+
 		var neighbours = neighbours_in_bounds(selected_room)
 		var add_next = []
-		
+
 		# filter already done
 		for neighbour in neighbours:
 			if !(done_list.has(neighbour) or up_next_list.has(neighbour)):
 				add_next.push_back(neighbour)
-				
+
 		# add edges
 		for node in add_next:
 			edge_list.push_back([selected_room, node])
-		
+
 		up_next_list.append_array(add_next)
-		
+
 		done_list.push_back(selected_room)
-	
+
+	print(edge_list)
 	return edge_list
-	
+
 func neighbours_in_bounds(index):
 	var neighbours = []
 	if index % 3 != 0:
 		neighbours.push_back(index - 1)
-		
+
 	if index % 3 != 2:
 		neighbours.push_back(index + 1)
-		
+
 	if int(index / 3) != 0:
 		neighbours.push_back(index - 3)
-		
+
 	if int(index / 3) != 2:
 		neighbours.push_back(index + 3)
-		
+
 	return neighbours
 
 func index_to_vec(index):
