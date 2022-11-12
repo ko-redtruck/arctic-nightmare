@@ -29,7 +29,6 @@ scale = Vector2( 0.02, 0.02 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2( 4, -4 )
 shape = SubResource( 6 )
-disabled = true
 __meta__ = {
 "_edit_lock_": true
 }
