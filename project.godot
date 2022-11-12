@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Effects="*res://scenes/Effects.gd"
 GameState="*res://scenes/GameState.gd"
 
 [display]
