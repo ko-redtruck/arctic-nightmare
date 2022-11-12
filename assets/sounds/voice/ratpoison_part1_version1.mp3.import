@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ratpoison_part1_version1.mp3-7dafe8c07a5691341e3581e57bc64004.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/ratpoison_part1_version1.mp3"
+dest_files=[ "res://.import/ratpoison_part1_version1.mp3-7dafe8c07a5691341e3581e57bc64004.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

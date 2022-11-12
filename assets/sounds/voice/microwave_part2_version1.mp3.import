@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/microwave_part2_version1.mp3-a5e702e1e991ad2956f1805517dad76d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/microwave_part2_version1.mp3"
+dest_files=[ "res://.import/microwave_part2_version1.mp3-a5e702e1e991ad2956f1805517dad76d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

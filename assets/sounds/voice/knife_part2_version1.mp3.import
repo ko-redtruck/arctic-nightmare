@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/knife_part2_version1.mp3-357bf15183331ae063fab1d5bab04a98.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/knife_part2_version1.mp3"
+dest_files=[ "res://.import/knife_part2_version1.mp3-357bf15183331ae063fab1d5bab04a98.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

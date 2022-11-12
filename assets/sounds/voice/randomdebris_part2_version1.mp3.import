@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/randomdebris_part2_version1.mp3-11ae89ea2a3863c7966d2d9f293a920c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/randomdebris_part2_version1.mp3"
+dest_files=[ "res://.import/randomdebris_part2_version1.mp3-11ae89ea2a3863c7966d2d9f293a920c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
