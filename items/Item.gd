@@ -15,10 +15,8 @@ func pick_up_on(player):
 	self.get_parent().remove_child(self)
 	player.equip(self)
 	
-	
 func use_on(player):
 	print("Used on", player)
-	
 	
 func is_usable():
 	print("is Usable")
