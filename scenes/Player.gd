@@ -22,7 +22,9 @@ func drop_equipped_item():
 	var current_item = get_equipped_item()
 	current_item.on_drop(self)
 	$ItemHolder.remove_child(current_item)
-	current_item.get_node("CollisionShape2D").disabled = false
+	for child in current_item.get_children():
+		if child is CollisionShape2D or child is CollisionPolygon2D:
+			child.disabled = false
 	current_item.set_mode(RigidBody2D.MODE_RIGID)
 	current_item.sleeping = false
 	current_item.position = self.position + $ItemHolder.position
@@ -45,7 +47,9 @@ func equip(item):
 		self.drop_equipped_item()
 
 	print("Equipping ",item, item.get_node("CollisionShape2D"))
-	item.get_node("CollisionShape2D").disabled = true
+	for child in item.get_children():
+		if child is CollisionShape2D or child is CollisionPolygon2D:
+			child.disabled = true
 	item.set_mode(RigidBody2D.MODE_STATIC)
 
 	item.position = Vector2(0, 0)

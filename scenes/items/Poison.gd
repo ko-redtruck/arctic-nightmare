@@ -10,4 +10,4 @@ func is_usable():
 	return true
 
 func _ready():
-	self.voice_lines =  ["lego_1", "lego_2"]
+	self.voice_lines =  ["ratpoison_1", "ratpoison_2"]
