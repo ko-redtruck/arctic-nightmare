@@ -12,7 +12,7 @@ var current_player = null
 
 func _ready():
 	item_name = "propeller_hat"
-	
+	self.voice_lines =  ["propeller_1", "propeller_2"]
 	if GameState.is_in_random_sleep_state():
 		CAN_FLY = true
 

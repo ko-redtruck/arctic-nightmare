@@ -15,3 +15,6 @@ func on_drop(player):
 	.on_drop(player)
 	player.get_node("Sprite").set_texture(normal_texture)
 	$Sprite.show()
+
+func _ready():
+	self.voice_lines =  ["swapper_1", "swapper_2"]
