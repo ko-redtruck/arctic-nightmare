@@ -85,8 +85,7 @@ func _input(event):
 		print($InactivityWinTimer.time_left)
 
 func _on_InactivityWinTimer_timeout():
-	pass
-	#GameState.player_is_inactive()
+	GameState.player_is_inactive()
 
 func _physics_process(delta):
 	print($InactivityWinTimer.time_left)
