@@ -13,7 +13,7 @@ func is_in_random_sleep_state():
 	randomize()
 	#1/self.iteration +1 chance
 	return self.isSleeping and rand_range(0, self.iteration) == 0
-	
+
 func reset():
 	iteration = 0
 	time_until_snow_storm = 60

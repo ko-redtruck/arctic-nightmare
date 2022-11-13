@@ -12,36 +12,34 @@
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="." index="0"]
-scale = Vector2( 0.031, 0.031 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Stove" type="Sprite" parent="." index="1"]
-position = Vector2( -1.5, 2.3 )
-scale = Vector2( 0.032, 0.032 )
+position = Vector2( -96, 150 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 visible = false
+scale = Vector2( 64, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 1, 1 )
 texture_scale = 0.03
 energy = 0.7
 
 [node name="Toaster" parent="." index="3" instance=ExtResource( 5 )]
-position = Vector2( -3, 1 )
+position = Vector2( -190, 75 )
+gravity_scale = 0.16
 sleeping = true
 
-[node name="Toaster" parent="." index="4" instance=ExtResource( 5 )]
-position = Vector2( -3, 1 )
-sleeping = true
-
-[node name="Light2D2" type="Light2D" parent="." index="5"]
+[node name="Light2D2" type="Light2D" parent="." index="4"]
 texture = ExtResource( 6 )
 offset = Vector2( -2, 0.5 )
 texture_scale = 0.02
 energy = 0.5
 
-[node name="Light2D3" type="Light2D" parent="." index="6"]
+[node name="Light2D3" type="Light2D" parent="." index="5"]
 texture = ExtResource( 6 )
 offset = Vector2( -2, 0.5 )
 texture_scale = 0.05

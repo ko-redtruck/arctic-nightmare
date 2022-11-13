@@ -6,13 +6,11 @@
 
 [node name="PropellerHat" instance=ExtResource( 1 )]
 mass = 0.0102041
-gravity_scale = 0.16
 script = ExtResource( 2 )
 CAN_FLY = false
 FLY_FORCE = 20.0
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="1"]
