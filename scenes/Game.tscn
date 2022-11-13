@@ -51,9 +51,5 @@ stream = ExtResource( 12 )
 
 [node name="VoiceLineTimer" type="Timer" parent="."]
 
-<<<<<<< Updated upstream
 [connection signal="timeout" from="StormCountdown" to="." method="_on_StormCountdown_timeout"]
-=======
-[connection signal="timeout" from="StormCountdown" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="VoiceLineTimer" to="." method="_on_VoiceLineTimer_timeout"]
->>>>>>> Stashed changes

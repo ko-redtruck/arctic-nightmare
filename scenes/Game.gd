@@ -14,6 +14,7 @@ var items = [
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
 
 func _ready():
+	print("Starting new level")
 	self.start_level()
 
 func start_level():
@@ -54,10 +55,9 @@ func spawn_items():
 		add_child(item)
 
 
-<<<<<<< Updated upstream
 func _on_StormCountdown_timeout():
 	get_tree().change_scene("res://scenes/StormDeath.tscn")
-=======
+
 func scripted_voice():
 	if (GameState.death_count == 0):
 		$VoiceLineTimer.wait_time = 30
@@ -71,4 +71,3 @@ func scripted_voice():
 		$VoicePlayer.play_voice("secret_ending_hint_3")
 	if (GameState.death_count + GameState.iteration == 15):
 		$VoicePlayer.play_voice("secret_ending_hint_4")
->>>>>>> Stashed changes
