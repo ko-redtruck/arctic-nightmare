@@ -14,11 +14,11 @@ func _ready():
 
 func is_in_random_sleep_state():
 	#1/self.iteration +1 chance
-	return self.isSleeping and rand_range(0, self.iteration) == 0
+	return self.isSleeping and rand_range(0, self.iteration - 1) == 0
 
 func reset():
 	iteration = 0
-	time_until_snow_storm = 60
+	time_until_snow_storm = 40
 
 func start_next_level():
 	isSleeping = randi() % 2 == 0
