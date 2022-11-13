@@ -6,6 +6,8 @@ var iteration
 
 var time_until_snow_storm
 
+var death_count = 0
+
 func _ready():
 	randomize()
 	reset()
@@ -42,4 +44,6 @@ func player_swapped():
 		transition_to("res://scenes/swapping_transition.tscn")
 		
 func transition_to(nextScene):
+	if (nextScene == "res://scenes/dying_transition.tscn"):
+		death_count=death_count+1
 	get_tree().change_scene(nextScene)
