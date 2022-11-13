@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/props/watering_can.png" type="Texture" id=2]
 [ext_resource path="res://assets/rooms/storage.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/props/shelf.png" type="Texture" id=5]
 
 [node name="Storage" type="Node2D"]
 
@@ -21,23 +22,32 @@ texture_scale = 0.03
 position = Vector2( -221, 122 )
 
 [node name="ItemSpawn2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -91, 72 )
+position = Vector2( -95, 125 )
 
 [node name="ItemSpawn3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -39, 79 )
+position = Vector2( 4, 5 )
 
 [node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 124 )
+position = Vector2( 106, 35 )
 
 [node name="ItemSpawn5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 210, 126 )
+position = Vector2( 190, 144 )
 
 [node name="WateringCan" type="Sprite" parent="."]
-position = Vector2( -64, 151 )
-scale = Vector2( 2, 2 )
+position = Vector2( -108, 172 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WateringCan"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WateringCan/StaticBody2D"]
 polygon = PoolVector2Array( -29.5, -11, -20, -18, -3.5, -18, 9, -8.5, 11.5, -1, 23, -6.5, 24, -12.5, 29, -13, 32.5, -7, 31.5, -3, 25.5, -4, 10, 10.5, 10, 20.5, -27.5, 20.5, -27.5, 1.5, -30.5, -2 )
+
+[node name="Shelf" type="Sprite" parent="."]
+position = Vector2( 70, 105 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Shelf"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Shelf/StaticBody2D"]
+polygon = PoolVector2Array( 23, 29, 23, -23, 19, -23, 19, -13, 4, -13, 4, -27, -18, -27, -18, -13, -23, -13, -23, -23, -27, -23, -27, 29 )
