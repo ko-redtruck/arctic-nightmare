@@ -39,7 +39,7 @@ func spawn_items():
 		var spawn = spawns[spawn_index]
 		spawns.remove(spawn_index)
 		var item = item_scene.instance()
-		item.position = spawn.position
+		item.global_position = spawn.global_position
 		if GameState.is_in_random_sleep_state() or (items_left <= 0 and GameState.isSleeping):
 			var effect = Effects.all[randi() % len(Effects.all)]
 			print("applying ", effect, " to ", item)

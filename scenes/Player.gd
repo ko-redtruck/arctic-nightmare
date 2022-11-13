@@ -12,7 +12,7 @@ var was_walljump_used = false
 var is_facing_right = true
 var is_on_ladder = false
 var is_jumping = false
-
+var current_idle_animation = "idle"
 var _gravity = GRAVITY
 
 func _ready():
@@ -101,7 +101,7 @@ func _physics_process(delta):
 		elif is_jumping && !is_facing_right:
 			$AnimationPlayer.play("jump_left")
 		else:
-			$AnimationPlayer.play("idle")
+			$AnimationPlayer.play(current_idle_animation)
 
 	if is_on_ladder:
 		_gravity = 0
