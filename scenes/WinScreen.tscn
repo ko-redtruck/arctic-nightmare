@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto/roboto.tres" type="DynamicFont" id=1]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -283.5
+margin_top = -26.5
+margin_right = 283.5
+margin_bottom = 26.5
+custom_fonts/font = ExtResource( 1 )
+text = "What snow storm?
+
+Exiting game loop due to inactivity"
+align = 1
