@@ -8,4 +8,4 @@ func use_on(player):
 		player.kill()
 
 func _ready():
-	item_name = "toaster"
+	self.voice_lines =  ["toaster_1", "toaster_1"]
