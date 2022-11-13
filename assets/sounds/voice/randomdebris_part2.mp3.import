@@ -11,5 +11,5 @@ dest_files=[ "res://.import/randomdebris_part2.mp3-1f8e91a5574ee11f85045790c8c44
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
