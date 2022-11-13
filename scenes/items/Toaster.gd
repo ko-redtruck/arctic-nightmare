@@ -12,6 +12,9 @@ func use_on(player):
 		lightning.targets.append(player)
 		lightning.targets.append(bathtub)
 		get_node("/root/Game").add_child(lightning)
+		player.current_idle_animation = "electrocute"
+		yield(get_tree().create_timer(1.5), "timeout")
+		player.kill()
 
 func _ready():
 	item_name = "toaster"

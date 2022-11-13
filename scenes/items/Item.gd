@@ -6,6 +6,9 @@ func get_in_effect_range(group: String):
 	for node in $EffectRadius.get_overlapping_bodies():
 		if node.is_in_group(group):
 			return node
+	for node in $EffectRadius.get_overlapping_areas():
+		if node.is_in_group(group):
+			return node
 	return null
 
 func is_in_effect_range(group: String):
