@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/popeller_part1.mp3-55caab752491c2eec87034777e4cc023.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/popeller_part1.mp3"
+dest_files=[ "res://.import/popeller_part1.mp3-55caab752491c2eec87034777e4cc023.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
