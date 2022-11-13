@@ -13,7 +13,6 @@ gravity_scale = 0.16
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
-scale = Vector2( 0.016, 0.016 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
