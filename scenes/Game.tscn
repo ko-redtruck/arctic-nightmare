@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/House.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=4]
 [ext_resource path="res://assets/rooms/lab.png" type="Texture" id=5]
 [ext_resource path="res://scenes/VoicePlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rooms/OuterWallCornerR.png" type="Texture" id=7]
+[ext_resource path="res://assets/rooms/OuterWallSegmentR.png" type="Texture" id=8]
 [ext_resource path="res://scenes/SnowstormParticles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sounds/storm.wav" type="AudioStream" id=12]
@@ -50,6 +52,160 @@ stream = ExtResource( 12 )
 [node name="VoicePlayer" parent="." instance=ExtResource( 6 )]
 
 [node name="VoiceLineTimer" type="Timer" parent="."]
+
+[node name="OuterWallSegment" type="Sprite" parent="."]
+position = Vector2( -904, -144 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment4" type="Sprite" parent="."]
+position = Vector2( -904, -448 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment2" type="Sprite" parent="."]
+position = Vector2( -904, 160 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment3" type="Sprite" parent="."]
+position = Vector2( -904, 464 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment9" type="Sprite" parent="."]
+position = Vector2( -728, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallCornerR" type="Sprite" parent="."]
+position = Vector2( -904, 640 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallSegment10" type="Sprite" parent="."]
+position = Vector2( -440, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment11" type="Sprite" parent="."]
+position = Vector2( -152, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment12" type="Sprite" parent="."]
+position = Vector2( 160, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment13" type="Sprite" parent="."]
+position = Vector2( 448, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment14" type="Sprite" parent="."]
+position = Vector2( 736, 640 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallCornerR2" type="Sprite" parent="."]
+position = Vector2( -904, -624 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR3" type="Sprite" parent="."]
+position = Vector2( -904, -296 )
+scale = Vector2( 1, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR4" type="Sprite" parent="."]
+position = Vector2( -904, 8 )
+scale = Vector2( 1, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR5" type="Sprite" parent="."]
+position = Vector2( -904, 312 )
+scale = Vector2( 1, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallSegment5" type="Sprite" parent="."]
+position = Vector2( 912, -144 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment6" type="Sprite" parent="."]
+position = Vector2( 912, -448 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment7" type="Sprite" parent="."]
+position = Vector2( 912, 160 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment8" type="Sprite" parent="."]
+position = Vector2( 912, 464 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+
+[node name="OuterWallCornerR6" type="Sprite" parent="."]
+position = Vector2( 912, 640 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR11" type="Sprite" parent="."]
+position = Vector2( 4, 640 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallSegment15" type="Sprite" parent="."]
+position = Vector2( -728, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment16" type="Sprite" parent="."]
+position = Vector2( -440, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment17" type="Sprite" parent="."]
+position = Vector2( -152, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment18" type="Sprite" parent="."]
+position = Vector2( 160, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment19" type="Sprite" parent="."]
+position = Vector2( 448, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallSegment20" type="Sprite" parent="."]
+position = Vector2( 736, -624 )
+rotation = 1.5708
+texture = ExtResource( 8 )
+
+[node name="OuterWallCornerR12" type="Sprite" parent="."]
+position = Vector2( 4, -624 )
+scale = Vector2( 0.5, 1 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR7" type="Sprite" parent="."]
+position = Vector2( 912, -624 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR8" type="Sprite" parent="."]
+position = Vector2( 912, -296 )
+scale = Vector2( -1, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR9" type="Sprite" parent="."]
+position = Vector2( 912, 8 )
+scale = Vector2( -1, 0.25 )
+texture = ExtResource( 7 )
+
+[node name="OuterWallCornerR10" type="Sprite" parent="."]
+position = Vector2( 912, 312 )
+scale = Vector2( -1, 0.25 )
+texture = ExtResource( 7 )
 
 [connection signal="timeout" from="StormCountdown" to="." method="_on_StormCountdown_timeout"]
 [connection signal="timeout" from="VoiceLineTimer" to="." method="_on_VoiceLineTimer_timeout"]

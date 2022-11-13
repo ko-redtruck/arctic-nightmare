@@ -11,5 +11,5 @@ dest_files=[ "res://.import/popeller_part2.mp3-1fec0a84350a1635e3962e5704b35be7.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

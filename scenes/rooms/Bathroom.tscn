@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/props/wilson.png" type="Texture" id=2]
 [ext_resource path="res://assets/bathroom.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
 [ext_resource path="res://scenes/props/Bathtub.tscn" type="PackedScene" id=5]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 24.0208
 
 [node name="Bathroom" type="Node2D"]
 
@@ -41,13 +37,3 @@ position = Vector2( -161, 166 )
 
 [node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
 position = Vector2( -14, 30 )
-
-[node name="Wilson" type="Sprite" parent="."]
-position = Vector2( 127, 166 )
-texture = ExtResource( 2 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wilson"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wilson/StaticBody2D"]
-position = Vector2( -2, 1 )
-shape = SubResource( 1 )
