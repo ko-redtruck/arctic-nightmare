@@ -11,7 +11,5 @@ func start_level():
 	get_node("AudioStreamPlayer").play()
 
 func _on_Timer_timeout():
-	if $Player2D.position.x < 0:
-		GameState.player_killed()
-	else:
-		GameState.player_swapped()
+	GameState.player_killed()
+

@@ -7,5 +7,4 @@ func _ready():
 		$Label.text = "You just killed yourself in the real world..."
 
 func _on_Timer_timeout():
-	GameState.reset()
-	get_tree().change_scene("res://scenes/Game.tscn")
+	get_tree().change_scene("res://scenes/GameOver.tscn")

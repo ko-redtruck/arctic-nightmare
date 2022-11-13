@@ -31,7 +31,7 @@ func player_killed():
 
 func player_swapped():
 	if isSleeping:
-		"res://scenes/dying_transition.tscn"
+		transition_to("res://scenes/dying_transition.tscn")
 		#get_tree().change_scene("res://scenes/dying_transition.tscn")
 	else:
 		#get_tree().change_scene("res://scenes/swapping_transition.tscn")
