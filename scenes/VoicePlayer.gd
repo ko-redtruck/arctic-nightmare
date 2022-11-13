@@ -40,6 +40,8 @@ var voice_dict = {
 	"tutorial_2": preload("res://assets/sounds/voice/tutorial_part2.mp3"),
 	"tutorial_3": preload("res://assets/sounds/voice/tutorial_part3.mp3"),
 	"tutorial_4": preload("res://assets/sounds/voice/tutorial_part4.mp3"),
+	"tutorial_1_2": preload("res://assets/sounds/voice/tutorial_1_2.mp3"),
+	"tutorial_4_3": preload("res://assets/sounds/voice/tutorial_4_3.mp3"),
 	}
 
 

@@ -24,7 +24,7 @@ func start_next_level():
 	isSleeping = randi() % 2 == 0
 	time_until_snow_storm += 20
 	iteration += 1
-	print("Is Sleeping", isSleeping)
+	print("Is Sleeping start next level", isSleeping)
 	get_tree().change_scene("res://scenes/Game.tscn")
 
 func play_voice(voice_line):
