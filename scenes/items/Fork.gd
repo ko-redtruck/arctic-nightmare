@@ -1,6 +1,7 @@
 extends "res://scenes/items/Item.gd"
 
 var group = "Outlet"
+onready var ELECTROCUTE_SOUND = preload("res://assets/sounds/electrocute.mp3")
 
 func is_usable():
 	return is_in_effect_range(group)
@@ -9,6 +10,7 @@ func use_on(player):
 	var outlet = get_in_effect_range(group)
 	if outlet != null:
 		var lightning = preload("res://scenes/props/Lightning.tscn").instance()
+		player.play_sound_effect(ELECTROCUTE_SOUND)
 		lightning.targets.append(player)
 		lightning.targets.append(outlet)
 		get_node("/root/Game").add_child(lightning)
