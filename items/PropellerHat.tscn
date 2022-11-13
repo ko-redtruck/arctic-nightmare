@@ -8,7 +8,7 @@
 mass = 0.0102041
 gravity_scale = 0.16
 script = ExtResource( 2 )
-CAN_FLY = true
+CAN_FLY = false
 FLY_FORCE = 20.0
 
 [node name="Sprite" parent="." index="0"]

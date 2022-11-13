@@ -7,4 +7,4 @@ func _ready():
 		$Label.text = "You activate the swapping device and esscape into a parallel universe..."
 
 func _on_Timer_timeout():
-	get_tree().change_scene("res://scenes/Game.tscn")
+	GameState.start_next_level()

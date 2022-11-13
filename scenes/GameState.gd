@@ -9,16 +9,28 @@ var time_until_snow_storm
 func _ready():
 	reset()
 
+func is_in_random_sleep_state():
+	randomize()
+	#1/self.iteration +1 chance
+	return self.isSleeping and rand_range(0, self.iteration) == 0
+	
 func reset():
 	iteration = 0
 	time_until_snow_storm = 60
 
+func start_next_level():
+	isSleeping = randi() % 2 == 0
+	time_until_snow_storm += 20
+	iteration += 1
+	print("Is Sleeping", isSleeping)
+	get_tree().change_scene("res://scenes/Game.tscn")
+	
 func start_level():
 	randomize()
 	iteration += 1
-	time_until_snow_storm *= 0.95
+	time_until_snow_storm += 20
 	isSleeping = randi() % 2 == 0
-	print(isSleeping)
+	print("isSleeping",isSleeping)
 	get_node("/root/Game").start_level()
 
 func player_killed():

@@ -10,7 +10,8 @@ var rotation_direction = 1
 func _ready():
 	randomize()
 	self.phase = rand_range(0, 2 * PI)
-	print("Phase:",phase)
+	if GameState.is_in_random_sleep_state():
+		MAX_ROTATION = rand_range(0, 2 * PI)
 
 
 
