@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/House.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=4]
 [ext_resource path="res://assets/rooms/lab.png" type="Texture" id=5]
+[ext_resource path="res://scenes/VoicePlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/SnowstormParticles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sounds/storm.wav" type="AudioStream" id=12]
@@ -45,5 +46,7 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+
+[node name="VoicePlayer" parent="." instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="StormCountdown" to="." method="_on_Timer_timeout"]

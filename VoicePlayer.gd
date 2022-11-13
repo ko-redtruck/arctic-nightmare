@@ -1,6 +1,5 @@
 extends Node
 
-var is_audio_playing = false
 
 var voice_dict = {
 	"dream_teasing_1": preload("res://assets/sounds/voice/dreamteasing_part1.mp3"),
@@ -45,19 +44,10 @@ var voice_dict = {
 
 	
 func play_voice(voiceline: String):
-	if self.is_audio_playing:
-		$AudioStreamPlayer.stop()
+	print()
 	$AudioStreamPlayer.stream = voice_dict[voiceline]
 	$AudioStreamPlayer.play()
-	is_audio_playing = true
-	
 		
 	
 func _ready():
-	self.is_audio_playing = false
-
-
-
-func _on_AudioStreamPlayer_finished():
-	is_audio_playing = false
-	
+	pass # Replace with function body.
