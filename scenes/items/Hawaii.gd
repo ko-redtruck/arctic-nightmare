@@ -5,7 +5,7 @@ var puke_instance = puke.instance()
 func use_on(player):
 	$Sprite.hide()
 	player.add_child(puke_instance)
-	player.current_idle_animation = "idle"
+	player.current_idle_animation = "puke"
 	yield(get_tree().create_timer(1.0), "timeout")
 	player.kill()
 

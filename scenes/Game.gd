@@ -9,6 +9,7 @@ var items = [
 	preload("res://scenes/items/Radio.tscn"),
 	preload("res://scenes/items/Can.tscn"),
 	preload("res://scenes/items/Hawaii.tscn"),
+	preload("res://scenes/items/Lego.tscn"),
 ]
 
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
