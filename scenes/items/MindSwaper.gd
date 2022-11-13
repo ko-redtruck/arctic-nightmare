@@ -3,7 +3,10 @@ extends "res://scenes/items/Item.gd"
 var swapper_texture = preload("res://assets/characters/scientist_animation_mindswapper.png")
 var normal_texture = preload("res://assets/characters/scientist_animation.png")
 
+onready var MINDSWAP_SOUND = preload("res://assets/sounds/mindswapper.mp3")
+
 func use_on(player):
+	.use_on(player)
 	GameState.player_swapped()
 
 func pick_up_on(player):
@@ -18,3 +21,4 @@ func on_drop(player):
 
 func _ready():
 	self.voice_lines =  ["swapper_1", "swapper_2"]
+	self.sound_effect = MINDSWAP_SOUND

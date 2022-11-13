@@ -4,6 +4,8 @@ var item_name
 var voice_lines = []
 #chance between 0-1/0-100%
 export (float) var VOICE_LINE_CHANCE = 0.3
+var sound_effect
+
 
 func get_in_effect_range(group: String):
 	for node in $EffectRadius.get_overlapping_bodies():
@@ -39,6 +41,8 @@ func on_drop(player):
 
 func use_on(player):
 	print("Used on", player)
+	if self.sound_effect != null:
+		player.play_sound_effect(self.sound_effect)
 
 func is_usable():
 	# print("is Usable")

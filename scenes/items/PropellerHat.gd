@@ -2,7 +2,8 @@ extends "res://scenes/items/Item.gd"
 
 var propeller_texture = preload("res://assets/characters/scientist_animation_propeller.png")
 var normal_texture = preload("res://assets/characters/scientist_animation.png")
-
+var PROPELLER_SOUND = preload("res://assets/sounds/propeller.mp3")
+ 
 export (bool) var CAN_FLY = false
 
 
@@ -28,6 +29,7 @@ func pick_up_on(player):
 
 func use_on(player):
 	if self.is_usable():
+		player.play_sound_effect(PROPELLER_SOUND)
 		current_player = player
 		$CooldownTimer.start()
 		cooldown_over = false

@@ -60,10 +60,11 @@ func spawn_items():
 
 
 func _on_StormCountdown_timeout():
+	GameState.death_count = GameState.death_count + 1
 	get_tree().change_scene("res://scenes/StormDeath.tscn")
 
 func scripted_voice():
-	if (GameState.death_count == 0):
+	if (GameState.death_count + GameState.iteration == 0):
 		$VoiceLineTimer.wait_time = 30
 		$VoiceLineTimer.start()
 		$VoicePlayer.play_voice("tutorial_1_2")
