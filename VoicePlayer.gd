@@ -45,7 +45,6 @@ var voice_dict = {
 	"wilson_2": preload("res://assets/sounds/voice/wilson_part2.mp3"),
 	"propeller_1": preload("res://assets/sounds/voice/popeller_part1.mp3"),
 	"propeller_2": preload("res://assets/sounds/voice/popeller_part2.mp3"),
-	
 	}
 
 
