@@ -39,6 +39,13 @@ var voice_dict = {
 	"tutorial_2": preload("res://assets/sounds/voice/tutorial_part2.mp3"),
 	"tutorial_3": preload("res://assets/sounds/voice/tutorial_part3.mp3"),
 	"tutorial_4": preload("res://assets/sounds/voice/tutorial_part4.mp3"),
+	"swapper_1": preload("res://assets/sounds/voice/swapper_part1.mp3"),
+	"swapper_2": preload("res://assets/sounds/voice/swapper_part2.mp3"),
+	"wilson_1": preload("res://assets/sounds/voice/wilson_part1.mp3"),
+	"wilson_2": preload("res://assets/sounds/voice/wilson_part2.mp3"),
+	"propeller_1": preload("res://assets/sounds/voice/popeller_part1.mp3"),
+	"propeller_2": preload("res://assets/sounds/voice/popeller_part2.mp3"),
+	
 	}
 
 
