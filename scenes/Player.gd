@@ -20,6 +20,7 @@ func _ready():
 
 func drop_equipped_item():
 	var current_item = get_equipped_item()
+	current_item.on_drop(self)
 	$ItemHolder.remove_child(current_item)
 	current_item.get_node("CollisionShape2D").disabled = false
 	current_item.set_mode(RigidBody2D.MODE_RIGID)

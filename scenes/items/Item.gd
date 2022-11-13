@@ -13,6 +13,9 @@ func pick_up_on(player):
 	self.get_parent().remove_child(self)
 	player.equip(self)
 
+func on_drop(player):
+	pass
+
 func use_on(player):
 	print("Used on", player)
 

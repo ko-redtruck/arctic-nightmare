@@ -7,7 +7,7 @@
 [node name="PropellerHat" instance=ExtResource( 1 )]
 mass = 1.0
 script = ExtResource( 2 )
-CAN_FLY = false
+CAN_FLY = null
 FLY_FORCE = 50.0
 
 [node name="Sprite" parent="." index="0"]
