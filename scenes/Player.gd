@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var JUMP_SOUND = preload("res://assets/sounds")
 var WALK_SPEED = 2500
 var GRAVITY = 1900
 var JUMP_SPEED = 900
@@ -162,3 +163,9 @@ func _on_LadderArea_area_entered(area):
 
 func _on_LadderArea_area_exited(area):
 	is_on_ladder = false
+
+func play_sound_effect(stream):
+	if $SoundEffectStreamPlayer.is_playing():
+		$SoundEffectStreamPlayer.stop()
+	$SoundEffectStreamPlayer.stream = stream
+	$SoundEffectStreamPlayer.play()
