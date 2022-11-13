@@ -1,5 +1,8 @@
 extends Node
 
+
+onready var _anim_player := $SceneTransitionRect/AnimationPlayer
+
 func _ready():
 	GameState.start_level()
 
