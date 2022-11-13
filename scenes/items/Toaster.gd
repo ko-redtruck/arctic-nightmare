@@ -1,6 +1,7 @@
 extends "res://scenes/items/Item.gd"
 
 var group = "Bathtub"
+onready var ELECTROCUTE_SOUND = preload("res://assets/sounds/electrocute.mp3")
 
 func is_usable():
 	return is_in_effect_range(group)
@@ -8,6 +9,7 @@ func is_usable():
 func use_on(player):
 	var bathtub = get_in_effect_range(group)
 	if bathtub != null:
+		player.play_sound_effect(ELECTROCUTE_SOUND)
 		var lightning = preload("res://scenes/props/Lightning.tscn").instance()
 		lightning.targets.append(player)
 		lightning.targets.append(bathtub)
