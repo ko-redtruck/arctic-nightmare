@@ -12,6 +12,7 @@ var items = [
 	preload("res://scenes/items/Lego.tscn"),
 	preload("res://scenes/items/Poison.tscn"),
 	preload("res://scenes/items/Spiritus.tscn"),
+	preload("res://scenes/items/Wilson.tscn"),
 ]
 
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
