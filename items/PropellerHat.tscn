@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://items/PropellerHat.gd" type="Script" id=2]
+[ext_resource path="res://assets/props/propellerhat.png" type="Texture" id=3]
 
 [node name="PropellerHat" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-can_fly = true
+CAN_FLY = true
 FLY_FORCE = 20.0
+
+[node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.01, 0.01 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2( 1.2, 1.2 )
 
 [node name="CooldownTimer" type="Timer" parent="." index="3"]
 wait_time = 3.0
