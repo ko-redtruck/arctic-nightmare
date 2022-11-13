@@ -249,7 +249,6 @@ hframes = 4
 vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 5 )
 scale = Vector2( 0.016, 0.016 )
 shape = SubResource( 2 )
@@ -267,7 +266,6 @@ anims/walk_left = SubResource( 9 )
 anims/walk_right = SubResource( 10 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2( 4, -4 )
@@ -277,11 +275,9 @@ __meta__ = {
 }
 
 [node name="ItemHolder" type="Node2D" parent="."]
-visible = false
 position = Vector2( 17, 8 )
 
 [node name="LadderArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -289,6 +285,11 @@ collision_mask = 2
 scale = Vector2( 0.01, 0.04 )
 shape = SubResource( 7 )
 
+[node name="InactivityWinTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_CollisionShape2D_tree_entered"]
 [connection signal="area_entered" from="LadderArea" to="." method="_on_LadderArea_area_entered"]
 [connection signal="area_exited" from="LadderArea" to="." method="_on_LadderArea_area_exited"]
+[connection signal="timeout" from="InactivityWinTimer" to="." method="_on_InactivityWinTimer_timeout"]

@@ -17,6 +17,7 @@ var items = [
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
 
 func _ready():
+	print("Starting new level")
 	self.start_level()
 
 func start_level():
@@ -25,17 +26,14 @@ func start_level():
 	$StormCountdown.wait_time = GameState.time_until_snow_storm
 	$StormCountdown.start()
 	spawn_items()
-	if (GameState.death_count == 0):
-		$VoiceLineTimer.wait_time = 25
-		$VoiceLineTimer.start()
-		$VoicePlayer.play_voice("tutorial_1")
+	scripted_voice()
 		
 
 func stop_level():
 	$StormCountdown.pause()
 	
 func _on_VoiceLineTimer_timeout():
-	$VoicePlayer.play_voice("tutorial_2")
+	$VoicePlayer.play_voice("tutorial_4_3")
 	
 
 func _process(delta):
@@ -62,3 +60,17 @@ func spawn_items():
 
 func _on_StormCountdown_timeout():
 	get_tree().change_scene("res://scenes/StormDeath.tscn")
+
+func scripted_voice():
+	if (GameState.death_count == 0):
+		$VoiceLineTimer.wait_time = 30
+		$VoiceLineTimer.start()
+		$VoicePlayer.play_voice("tutorial_1_2")
+	if (GameState.death_count + GameState.iteration == 5):
+		$VoicePlayer.play_voice("secret_ending_hint_1")
+	if (GameState.death_count + GameState.iteration == 10):
+		$VoicePlayer.play_voice("secret_ending_hint_2")
+	if (GameState.death_count + GameState.iteration == 13):
+		$VoicePlayer.play_voice("secret_ending_hint_3")
+	if (GameState.death_count + GameState.iteration == 15):
+		$VoicePlayer.play_voice("secret_ending_hint_4")
