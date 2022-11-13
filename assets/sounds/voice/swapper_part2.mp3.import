@@ -11,5 +11,5 @@ dest_files=[ "res://.import/swapper_part2.mp3-28f82ba6671dd24c1b2515b521c7f10d.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
