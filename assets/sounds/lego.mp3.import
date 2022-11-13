@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lego.mp3-0eaf3110ef2afec4b8b031826e186cff.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/lego.mp3"
+dest_files=[ "res://.import/lego.mp3-0eaf3110ef2afec4b8b031826e186cff.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
