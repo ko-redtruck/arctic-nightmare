@@ -12,6 +12,7 @@ var items = [
 	preload("res://scenes/items/Lego.tscn"),
 	preload("res://scenes/items/Poison.tscn"),
 	preload("res://scenes/items/Spiritus.tscn"),
+	preload("res://scenes/items/Wilson.tscn"),
 ]
 
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
@@ -59,6 +60,7 @@ func spawn_items():
 
 
 func _on_StormCountdown_timeout():
+	GameState.death_count = GameState.death_count + 1
 	get_tree().change_scene("res://scenes/StormDeath.tscn")
 
 func scripted_voice():
