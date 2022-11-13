@@ -5,11 +5,17 @@ var voice_lines = []
 #chance between 0-1/0-100%
 export (float) var VOICE_LINE_CHANCE = 0.3
 
-func is_in_effect_range(group: String):
+func get_in_effect_range(group: String):
 	for node in $EffectRadius.get_overlapping_bodies():
 		if node.is_in_group(group):
-			return true
-	return false
+			return node
+	for node in $EffectRadius.get_overlapping_areas():
+		if node.is_in_group(group):
+			return node
+	return null
+
+func is_in_effect_range(group: String):
+	return get_in_effect_range(group) != null
 
 func play_random_voice_line():
 	randomize()
@@ -27,6 +33,9 @@ func pick_up_on(player):
 	self.get_parent().remove_child(self)
 	player.equip(self)
 	
+
+func on_drop(player):
+	pass
 
 func use_on(player):
 	print("Used on", player)

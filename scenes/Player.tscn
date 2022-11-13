@@ -215,10 +215,9 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 4
-frame = 11
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 5 )
 scale = Vector2( 0.016, 0.016 )
 shape = SubResource( 2 )
@@ -234,7 +233,6 @@ anims/walk_left = SubResource( 9 )
 anims/walk_right = SubResource( 10 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2( 4, -4 )
@@ -244,11 +242,9 @@ __meta__ = {
 }
 
 [node name="ItemHolder" type="Node2D" parent="."]
-visible = false
 position = Vector2( 17, 8 )
 
 [node name="LadderArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

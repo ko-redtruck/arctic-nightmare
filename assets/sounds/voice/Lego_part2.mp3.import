@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Lego_part2.mp3-905c0c5a7df3a74eb9a292dba4ab4510.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

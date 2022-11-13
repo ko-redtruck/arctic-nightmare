@@ -1,5 +1,8 @@
 extends "res://scenes/items/Item.gd"
 
+var propeller_texture = preload("res://assets/characters/scientist_animation_propeller.png")
+var normal_texture = preload("res://assets/characters/scientist_animation.png")
+
 export (bool) var CAN_FLY = false
 
 
@@ -12,6 +15,16 @@ func _ready():
 	
 	if GameState.is_in_random_sleep_state():
 		CAN_FLY = true
+
+func on_drop(player):
+	.on_drop(player)
+	player.get_node("Sprite").set_texture(normal_texture)
+	$Sprite.show()
+	
+func pick_up_on(player):
+	.pick_up_on(player)
+	player.get_node("Sprite").set_texture(propeller_texture)
+	$Sprite.hide()
 
 func use_on(player):
 	if self.is_usable():

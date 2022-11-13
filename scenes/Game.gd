@@ -5,6 +5,7 @@ var items = [
 	preload("res://scenes/items/MindSwaper.tscn"),
 	preload("res://scenes/items/PropellerHat.tscn"),
 	preload("res://scenes/items/Toaster.tscn"),
+	preload("res://scenes/items/Fork.tscn"),
 ]
 
 onready var _anim_player := $SceneTransitionRect/AnimationPlayer
@@ -18,12 +19,18 @@ func start_level():
 	$StormCountdown.wait_time = GameState.time_until_snow_storm
 	$StormCountdown.start()
 	spawn_items()
+	if (GameState.death_count == 0):
+		$VoiceLineTimer.wait_time = 25
+		$VoiceLineTimer.start()
+		$VoicePlayer.play_voice("tutorial_1")
+		
 
 func stop_level():
 	$StormCountdown.pause()
 	
-func _on_Timer_timeout():
-	GameState.player_killed()
+func _on_VoiceLineTimer_timeout():
+	$VoicePlayer.play_voice("tutorial_2")
+	
 
 func _process(delta):
 	GameState.time_until_snow_storm = $StormCountdown.time_left

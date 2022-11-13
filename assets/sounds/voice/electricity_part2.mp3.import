@@ -11,5 +11,5 @@ dest_files=[ "res://.import/electricity_part2.mp3-6a42a8c40d156df12a74ec74e05367
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/microwave_part2.mp3-777f320daa26cc1551510a5926c69d32
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

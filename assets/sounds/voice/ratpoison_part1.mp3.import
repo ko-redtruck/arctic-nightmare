@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ratpoison_part1.mp3-b48f25b228668fb91ceef79a9ece5b12
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
