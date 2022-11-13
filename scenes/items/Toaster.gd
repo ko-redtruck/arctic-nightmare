@@ -11,3 +11,6 @@ func is_usable():
 func use_on(player):
 	if self.is_bathtub_in_range():
 		player.kill()
+
+func _ready():
+	item_name = "toaster"
