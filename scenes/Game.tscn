@@ -44,7 +44,7 @@ position = Vector2( 2, -1 )
 
 [node name="Item2" parent="." instance=ExtResource( 6 )]
 
-[node name="Timer" type="Timer" parent="."]
+[node name="StormCountdown" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
 autostart = true
@@ -55,4 +55,4 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="StormCountdown" to="." method="_on_Timer_timeout"]

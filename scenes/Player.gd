@@ -26,8 +26,14 @@ func drop_equipped_item():
 	current_item.position = self.position + $ItemHolder.position
 	self.get_parent().add_child(current_item)
 
+func has_equipped_usable_item():
+	return self.has_equipped_item() and self.get_equipped_item().is_usable()
+
 func has_equipped_item():
 	return self.get_equipped_item() != null
+
+func can_equip_item_from_world():
+	return self.get_nearest_item_in_world() != null
 
 func use_equipped_item():
 	return self.get_equipped_item().use_on(self)

@@ -17,7 +17,7 @@ margin_right = -91.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( -3904, -1376 )
 custom_fonts/font = ExtResource( 2 )
-text = "Use item (e)"
+text = "Use item (E)"
 
 [node name="ItemPickUp" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0.411765 )
@@ -30,7 +30,7 @@ margin_top = -120.0
 margin_right = -386.0
 margin_bottom = -67.0
 custom_fonts/font = ExtResource( 2 )
-text = "Pick item up (q)"
+text = "Pick up item (Q)"
 
 [node name="Timer" type="Label" parent="."]
 anchor_left = 1.0
