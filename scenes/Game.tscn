@@ -72,6 +72,8 @@ offset = Vector2( 0, 36 )
 
 [node name="Player2D" parent="." instance=ExtResource( 3 )]
 
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.01, 0.01 )
