@@ -1,10 +1,10 @@
-extends Node2D
+extends CanvasLayer
 
 func _ready():
 	if GameState.isSleeping:
-		$Label.text = "You awake by shock after dying in your dreams and quickly escape into a parallel universe..."
+		$RealityLabel.hide()
 	else:
-		$Label.text = "You activate the swapping device and esscape into a parallel universe..."
+		$SleepLabel.hide()
 
 func _on_Timer_timeout():
 	GameState.start_next_level()
