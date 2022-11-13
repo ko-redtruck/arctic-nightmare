@@ -10,7 +10,8 @@ radius = 18.0
 radius = 100.0
 
 [node name="Item" type="RigidBody2D" groups=["Items"]]
-mass = 0.102041
+mass = 10.0
+gravity_scale = 3.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

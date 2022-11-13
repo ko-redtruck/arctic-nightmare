@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/props/propellerhat.png" type="Texture" id=3]
 
 [node name="PropellerHat" instance=ExtResource( 1 )]
-mass = 0.0102041
+mass = 1.0
 script = ExtResource( 2 )
 CAN_FLY = false
 FLY_FORCE = 20.0

@@ -8,8 +8,6 @@
 extents = Vector2( 0.75, 0.55 )
 
 [node name="Knife" instance=ExtResource( 2 )]
-mass = 0.0102041
-gravity_scale = 0.16
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
