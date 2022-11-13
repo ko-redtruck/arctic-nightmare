@@ -28,6 +28,8 @@ offset = Vector2( 0, 36 )
 
 [node name="Player2D" parent="." instance=ExtResource( 3 )]
 
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.01, 0.01 )
@@ -52,7 +54,5 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-
-[node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
