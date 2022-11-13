@@ -9,8 +9,9 @@ var LADDER_SPEED = 2
 
 var velocity = Vector2()
 var was_walljump_used = false
-
+var is_facing_right = true
 var is_on_ladder = false
+var is_jumping = false
 
 var _gravity = GRAVITY
 
@@ -72,6 +73,7 @@ func get_nearest_item_in_world():
 	return nearest_item
 				
 func _physics_process(delta):
+
 	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))	
 	if abs(walk_force) < 0.2 * WALK_SPEED:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
@@ -80,6 +82,27 @@ func _physics_process(delta):
 	velocity.y += _gravity * delta
 	#Vecotor2(0, -1) is telling Godot the up direction
 	
+	#animation stuff
+	if walk_force < 0:
+		is_facing_right = false
+		if is_jumping:
+			$AnimationPlayer.play("jump_left")
+		else:
+			$AnimationPlayer.play("walk_left")
+	elif walk_force > 0:
+		is_facing_right = true
+		if is_jumping:
+			$AnimationPlayer.play("jump_right")
+		else:
+			$AnimationPlayer.play("walk_right")
+	elif walk_force == 0:
+		if is_jumping && is_facing_right:
+			$AnimationPlayer.play("jump_right")
+		elif is_jumping && !is_facing_right:
+			$AnimationPlayer.play("jump_left")
+		else:
+			$AnimationPlayer.play("idle")
+
 	if is_on_ladder:
 		_gravity = 0
 		velocity.y += Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -92,8 +115,10 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = 0
 		was_walljump_used = false
+		is_jumping = false
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
+			is_jumping = true
 			velocity.y = -JUMP_SPEED
 		elif is_on_wall() and was_walljump_used == false:
 			was_walljump_used = true
