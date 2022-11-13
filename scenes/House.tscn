@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/House.gd" type="Script" id=1]
-[ext_resource path="res://assets/rooms/OuterWallSegmentR.png" type="Texture" id=2]
-[ext_resource path="res://assets/rooms/OuterWallCornerR.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1024, 64 )
@@ -42,17 +40,3 @@ position = Vector2( 0, 672 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource( 1 )
-
-[node name="OuterWallSegment" type="Sprite" parent="."]
-position = Vector2( -904, 0 )
-texture = ExtResource( 2 )
-
-[node name="OuterWallSegment2" type="Sprite" parent="."]
-position = Vector2( -14.1, 5.6 )
-scale = Vector2( 0.016, 0.016 )
-texture = ExtResource( 2 )
-
-[node name="OuterWallCorner" type="Sprite" parent="."]
-position = Vector2( -14.1, 2.8 )
-scale = Vector2( 0.016, 0.016 )
-texture = ExtResource( 3 )

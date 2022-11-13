@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/propeller.mp3-9f8c5baf4c3049bf7edfd741301633fe.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/propeller.mp3"
+dest_files=[ "res://.import/propeller.mp3-9f8c5baf4c3049bf7edfd741301633fe.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
