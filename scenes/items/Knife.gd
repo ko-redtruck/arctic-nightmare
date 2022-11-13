@@ -2,7 +2,6 @@ extends "res://scenes/items/Item.gd"
 var blood = preload("res://assets/particles/blood.tscn")
 var blood_instance = blood.instance()
 
-
 func use_on(player):
 	$Sprite.hide()
 	player.add_child(blood_instance)
@@ -15,4 +14,4 @@ func is_usable():
 	return true
 
 func _ready():
-	item_name = "knife"
+	self.voice_lines =  ["knife_1", "knife_2"]

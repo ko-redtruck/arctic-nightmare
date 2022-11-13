@@ -6,6 +6,8 @@ var iteration
 
 var time_until_snow_storm
 
+var death_count = 0
+
 func _ready():
 	randomize()
 	reset()
@@ -25,6 +27,9 @@ func start_next_level():
 	print("Is Sleeping", isSleeping)
 	get_tree().change_scene("res://scenes/Game.tscn")
 
+func play_voice(voice_line):
+	get_node("/root/Game/VoicePlayer").play_voice(voice_line)
+	
 func player_killed():
 	if isSleeping:
 		transition_to("res://scenes/swapping_transition.tscn")
@@ -42,4 +47,6 @@ func player_swapped():
 		transition_to("res://scenes/swapping_transition.tscn")
 		
 func transition_to(nextScene):
+	if (nextScene == "res://scenes/dying_transition.tscn"):
+		death_count=death_count+1
 	get_tree().change_scene(nextScene)

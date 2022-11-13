@@ -12,7 +12,7 @@ var was_walljump_used = false
 var is_facing_right = true
 var is_on_ladder = false
 var is_jumping = false
-var current_idle_animation = "idle"
+var current_idle_animation = null
 var _gravity = GRAVITY
 
 func _ready():
@@ -84,7 +84,9 @@ func _physics_process(delta):
 	#Vecotor2(0, -1) is telling Godot the up direction
 
 	#animation stuff
-	if walk_force < 0:
+	if current_idle_animation != null:
+		$AnimationPlayer.play(current_idle_animation)
+	elif walk_force < 0:
 		is_facing_right = false
 		if is_jumping:
 			$AnimationPlayer.play("jump_left")
@@ -102,7 +104,7 @@ func _physics_process(delta):
 		elif is_jumping && !is_facing_right:
 			$AnimationPlayer.play("jump_left")
 		else:
-			$AnimationPlayer.play(current_idle_animation)
+			$AnimationPlayer.play("idle")
 
 	if is_on_ladder:
 		_gravity = 0

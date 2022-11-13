@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/fonts/Roboto/roboto.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://scenes/SnowstormParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/VoicePlayer.tscn" type="PackedScene" id=4]
 
 [node name="GameOverScreen" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="PlayIntroButton" type="Button" parent="."]
 margin_left = 1016.0
 margin_top = 553.0
 margin_right = 1239.0
@@ -45,4 +46,15 @@ text = "Arctic Nightmare
 position = Vector2( 100, 300 )
 scale = Vector2( 50, 50 )
 
+[node name="VoicePlayer" parent="." instance=ExtResource( 4 )]
+
+[node name="Death_count" type="Label" parent="."]
+margin_left = 469.0
+margin_top = 392.0
+margin_right = 551.0
+margin_bottom = 406.0
+text = "Death count:"
+
+[connection signal="pressed" from="PlayIntroButton" to="." method="_on_PlayIntroButton_pressed"]
 [connection signal="pressed" from="PlayAgainButton" to="." method="_on_PlayAgainButton_pressed"]
+[connection signal="ready" from="Death_count" to="." method="_on_Death_count_ready"]
