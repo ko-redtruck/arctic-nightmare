@@ -7,6 +7,7 @@ var iteration
 var time_until_snow_storm
 
 var death_count = 0
+export (int) var MIN_ITERATION_FOR_WIN = 5
 
 func _ready():
 	randomize()
@@ -50,3 +51,7 @@ func transition_to(nextScene):
 	if (nextScene == "res://scenes/dying_transition.tscn"):
 		death_count=death_count+1
 	get_tree().change_scene(nextScene)
+
+func player_is_inactive():
+	if self.iteration > MIN_ITERATION_FOR_WIN:
+		get_tree().change_scene("res://scenes/WinScreen.tscn")
