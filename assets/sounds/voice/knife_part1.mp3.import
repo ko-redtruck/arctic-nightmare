@@ -11,5 +11,5 @@ dest_files=[ "res://.import/knife_part1.mp3-c24f98057a9babcb32df1dbf73b35f7f.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

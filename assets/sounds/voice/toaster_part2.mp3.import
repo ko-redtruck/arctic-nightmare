@@ -11,5 +11,5 @@ dest_files=[ "res://.import/toaster_part2.mp3-6c5b75930d04a5fbd1caccf0d23e739e.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

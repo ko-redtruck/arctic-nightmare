@@ -11,5 +11,5 @@ dest_files=[ "res://.import/fork_part1.mp3-7442e6a6b3183c41fe5cd798295ddd3e.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

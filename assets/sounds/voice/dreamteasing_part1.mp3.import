@@ -11,5 +11,5 @@ dest_files=[ "res://.import/dreamteasing_part1.mp3-76a5542c9b488f0035947b7d6f798
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
