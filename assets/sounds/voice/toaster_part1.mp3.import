@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/toaster_part1.mp3-840998e26f87eeaf0e0856d464b4cab7.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/toaster_part1.mp3"
+dest_files=[ "res://.import/toaster_part1.mp3-840998e26f87eeaf0e0856d464b4cab7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

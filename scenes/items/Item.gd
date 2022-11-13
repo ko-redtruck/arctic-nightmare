@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var item_name
+
 func is_in_effect_range(group: String):
 	for node in $EffectRadius.get_overlapping_bodies():
 		if node.is_in_group(group):

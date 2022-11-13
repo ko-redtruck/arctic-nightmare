@@ -6,3 +6,6 @@ func is_usable():
 func use_on(player):
 	if self.is_usable():
 		player.kill()
+
+func _ready():
+	item_name = "toaster"

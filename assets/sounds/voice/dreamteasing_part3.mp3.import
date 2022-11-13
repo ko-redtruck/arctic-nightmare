@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dreamteasing_part3.mp3-853c7d50efd398751c168c42dc7beb8d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/dreamteasing_part3.mp3"
+dest_files=[ "res://.import/dreamteasing_part3.mp3-853c7d50efd398751c168c42dc7beb8d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
