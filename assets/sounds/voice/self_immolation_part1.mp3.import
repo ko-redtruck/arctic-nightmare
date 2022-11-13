@@ -11,5 +11,5 @@ dest_files=[ "res://.import/self_immolation_part1.mp3-7df34275fcdfdcab00c29ae648
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

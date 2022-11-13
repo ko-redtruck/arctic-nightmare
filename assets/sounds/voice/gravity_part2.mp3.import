@@ -11,5 +11,5 @@ dest_files=[ "res://.import/gravity_part2.mp3-fbe84ca80e5bf065f1d1f8710b4c604d.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/tutorial_part1.mp3-78932b6ca93f0132cdf65c27dc39aab9.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/Roboto/roboto.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/StormDeath.gd" type="Script" id=2]
+
+[node name="StormDeathCanvas" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -549.0
+margin_top = -82.5
+margin_right = 549.0
+margin_bottom = 82.5
+custom_fonts/font = ExtResource( 1 )
+text = "No time left!
+
+The storm got to you. Next time don't freeze to death :)"
+align = 1
+
+[node name="MenuTimeout" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="MenuTimeout" to="." method="_on_MenuTimeout_timeout"]

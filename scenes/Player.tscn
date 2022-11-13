@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/characters/scientist_animation.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
@@ -114,6 +114,21 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "puke"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 12 ]
+}
+
 [sub_resource type="Animation" id=14]
 resource_name = "stab"
 loop = true
@@ -127,7 +142,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 9, 10, 13, 14 ]
+"values": [ 7, 8, 10, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -215,10 +230,9 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 4
-frame = 3
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 5 )
 scale = Vector2( 0.016, 0.016 )
 shape = SubResource( 2 )
@@ -229,12 +243,12 @@ anims/electrocute = SubResource( 15 )
 anims/idle = SubResource( 11 )
 anims/jump_left = SubResource( 13 )
 anims/jump_right = SubResource( 12 )
+anims/puke = SubResource( 16 )
 anims/stab = SubResource( 14 )
 anims/walk_left = SubResource( 9 )
 anims/walk_right = SubResource( 10 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2( 4, -4 )
@@ -244,11 +258,9 @@ __meta__ = {
 }
 
 [node name="ItemHolder" type="Node2D" parent="."]
-visible = false
 position = Vector2( 17, 8 )
 
 [node name="LadderArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 

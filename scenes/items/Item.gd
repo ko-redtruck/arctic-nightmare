@@ -34,6 +34,9 @@ func pick_up_on(player):
 	player.equip(self)
 	
 
+func on_drop(player):
+	pass
+
 func use_on(player):
 	print("Used on", player)
 
