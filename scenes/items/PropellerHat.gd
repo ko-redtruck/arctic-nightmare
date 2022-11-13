@@ -7,6 +7,8 @@ export (float) var FLY_FORCE = 20.0
 var cooldown_over = true
 
 func _ready():
+	item_name = "propeller_hat"
+	
 	if GameState.is_in_random_sleep_state():
 		CAN_FLY = true
 
