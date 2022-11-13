@@ -58,13 +58,21 @@ func play_voice(voiceline: String):
 	$AudioStreamPlayer.stream = voice_dict[voiceline]
 	$AudioStreamPlayer.play()
 	is_audio_playing = true
-	
-		
-	
+
+var teasers = [
+	"dream_teasing_1",
+	"dream_teasing_2",
+	"dream_teasing_3",
+	"dream_teasing_4",
+	"dream_teasing_5",
+]
+
 func _ready():
 	self.is_audio_playing = false
-
-
+	while true:
+		if not is_audio_playing and get_node("/root").get_child(2).name == "Game":
+			play_voice(teasers[randi() % len(teasers)])
+		yield(get_tree().create_timer(15.0), "timeout")
 
 func _on_AudioStreamPlayer_finished():
 	is_audio_playing = false
