@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electrocute.mp3-ca456f2a77dea9d0220c898db873fc5c.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/electrocute.mp3"
+dest_files=[ "res://.import/electrocute.mp3-ca456f2a77dea9d0220c898db873fc5c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

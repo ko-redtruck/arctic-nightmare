@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/poison.mp3-96b967cf732792d1e50769782c3c9cf1.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/poison.mp3"
+dest_files=[ "res://.import/poison.mp3-96b967cf732792d1e50769782c3c9cf1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

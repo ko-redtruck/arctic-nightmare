@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mindswapper.mp3-c890a050d4445fccc012c730376f2b9a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/mindswapper.mp3"
+dest_files=[ "res://.import/mindswapper.mp3-c890a050d4445fccc012c730376f2b9a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

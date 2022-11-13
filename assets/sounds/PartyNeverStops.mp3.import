@@ -11,5 +11,5 @@ dest_files=[ "res://.import/PartyNeverStops.mp3-d39a0b47748be8536574912b46a18ad5
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
