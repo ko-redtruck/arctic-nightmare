@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-var WALK_SPEED = 40
-var GRAVITY = 30
-var JUMP_SPEED = 14
-var MAX_WALK_SPEED = 8
-var FRICTION = 50
-var LADDER_SPEED = 2
+var WALK_SPEED = 2500
+var GRAVITY = 1900
+var JUMP_SPEED = 900
+var MAX_WALK_SPEED = 500
+var FRICTION = 3200
+var LADDER_SPEED = 500
 
 var velocity = Vector2()
 var was_walljump_used = false

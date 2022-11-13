@@ -1,7 +1,7 @@
 extends Node2D
 
-export var room_size = Vector2(9, 6)
-export var wall_thickness = Vector2(.25, .5)
+export var room_size = Vector2(576, 384)
+export var wall_thickness = Vector2(16, 32)
 
 var rooms = [
 	preload("res://scenes/rooms/Kitchen.tscn"),
@@ -138,4 +138,4 @@ func neighbours_in_bounds(index):
 	return neighbours
 
 func index_to_vec(index):
-	return Vector2((index % 3) - 0.5, int(index / 3) - 0.5) * (Vector2(9, 6) + wall_thickness) - Vector2(4.5, 3)
+	return Vector2((index % 3) - 1, int(index / 3) - 1) * (room_size + wall_thickness)

@@ -11,28 +11,32 @@
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="." index="0"]
-scale = Vector2( 0.031, 0.031 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="Lamp" parent="." index="1" instance=ExtResource( 4 )]
+position = Vector2( -192, -64 )
+scale = Vector2( 2, 2 )
 
 [node name="Plant" type="Sprite" parent="." index="2"]
-position = Vector2( -3, 1.9 )
-scale = Vector2( 0.032, 0.032 )
+position = Vector2( -192, 128 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Plant2" type="Sprite" parent="." index="3"]
-position = Vector2( -0.5, 1.9 )
-scale = Vector2( 0.032, 0.032 )
+position = Vector2( -32, 128 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
 
 [node name="Plant3" type="Sprite" parent="." index="4"]
-position = Vector2( 3, 1.9 )
-scale = Vector2( 0.032, 0.032 )
+position = Vector2( 192, 128 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
 [node name="Lamp2" parent="." index="5" instance=ExtResource( 4 )]
-position = Vector2( -1, -1 )
+position = Vector2( -64, -64 )
+scale = Vector2( 2, 2 )
 
 [node name="Lamp3" parent="." index="6" instance=ExtResource( 4 )]
-position = Vector2( 3, -1 )
+position = Vector2( 192, -64 )
+scale = Vector2( 2, 2 )
