@@ -45,3 +45,7 @@ func spawn_items():
 			print("applying ", effect, " to ", item)
 			effect.apply(item)
 		add_child(item)
+
+
+func _on_StormCountdown_timeout():
+	get_tree().change_scene("res://scenes/StormDeath.tscn")
