@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var JUMP_SOUND = preload("res://assets/sounds/jump.mp3")
 var WALK_SPEED = 2500
 var GRAVITY = 1900
 var JUMP_SPEED = 900
@@ -82,13 +83,11 @@ func get_nearest_item_in_world():
 func _input(event):
 	if event.is_action_type():
 		$InactivityWinTimer.start()
-		print($InactivityWinTimer.time_left)
 
 func _on_InactivityWinTimer_timeout():
 	GameState.player_is_inactive()
 
 func _physics_process(delta):
-	print($InactivityWinTimer.time_left)
 	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	if abs(walk_force) < 0.2 * WALK_SPEED:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
@@ -138,7 +137,9 @@ func _physics_process(delta):
 		if is_on_floor():
 			is_jumping = true
 			velocity.y = -JUMP_SPEED
+			self.play_sound_effect(JUMP_SOUND)
 		elif is_on_wall() and was_walljump_used == false:
+			self.play_sound_effect(JUMP_SOUND)
 			was_walljump_used = true
 			velocity.y = -JUMP_SPEED
 			velocity.x += clamp(-velocity.x * MAX_WALK_SPEED * 20, -MAX_WALK_SPEED * 5, MAX_WALK_SPEED * 5)
@@ -162,3 +163,10 @@ func _on_LadderArea_area_entered(area):
 
 func _on_LadderArea_area_exited(area):
 	is_on_ladder = false
+
+func play_sound_effect(stream):
+	print("Playing sound", stream)
+	if $SoundEffectStreamPlayer.is_playing():
+		$SoundEffectStreamPlayer.stop()
+	$SoundEffectStreamPlayer.stream = stream
+	$SoundEffectStreamPlayer.play()

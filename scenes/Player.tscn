@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/characters/scientist_animation.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://scenes/SoundEffectStreamPlayer.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 1280.0
@@ -174,7 +175,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 9, 10, 13, 14 ]
+"values": [ 7, 8, 10, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:scale")
@@ -305,6 +306,9 @@ shape = SubResource( 7 )
 [node name="InactivityWinTimer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="SoundEffectStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource( 3 )
 
 [connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_CollisionShape2D_tree_entered"]
 [connection signal="area_entered" from="LadderArea" to="." method="_on_LadderArea_area_entered"]

@@ -1,6 +1,7 @@
 extends "res://scenes/items/Item.gd"
 
 var group = "Microwave"
+onready var ELECTROCUTE_SOUND = preload("res://assets/sounds/electrocute.mp3")
 
 func is_usable():
 	return is_in_effect_range(group)
@@ -11,6 +12,7 @@ func use_on(player):
 		var lightning = preload("res://scenes/props/Lightning.tscn").instance()
 		lightning.targets.append(player)
 		lightning.targets.append(microwave)
+		player.play_sound_effect(ELECTROCUTE_SOUND)
 		get_node("/root/Game").add_child(lightning)
 		player.current_idle_animation = "electrocute"
 		yield(get_tree().create_timer(1.5), "timeout")
@@ -19,3 +21,4 @@ func use_on(player):
 func _ready():
 	item_name = "can"
 	voice_lines =  ["microwave_1", "microwave_2"]
+
