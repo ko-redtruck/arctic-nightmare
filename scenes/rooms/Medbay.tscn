@@ -1,45 +1,58 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/HouseRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/rooms/Medbay.gd" type="Script" id=2]
+[ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/MedbayR.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
 
-[node name="Medbay" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Medbay" type="Node2D"]
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[node name="Background" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0.4 )
 
-[node name="Light2D" type="Light2D" parent="." index="1"]
+[node name="Light2D" type="Light2D" parent="."]
 visible = false
 scale = Vector2( 64, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 1 )
 texture_scale = 0.03
 
-[node name="Light2D2" type="Light2D" parent="." index="2"]
+[node name="Light2D2" type="Light2D" parent="."]
 scale = Vector2( 13, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( -15, 1 )
 texture_scale = 0.03
 
-[node name="Light2D3" type="Light2D" parent="." index="3"]
+[node name="Light2D3" type="Light2D" parent="."]
 scale = Vector2( 13, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( -5, 1 )
 texture_scale = 0.03
 
-[node name="Light2D4" type="Light2D" parent="." index="4"]
+[node name="Light2D4" type="Light2D" parent="."]
 scale = Vector2( 13, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 15, 1 )
 texture_scale = 0.03
 
-[node name="Light2D5" type="Light2D" parent="." index="5"]
+[node name="Light2D5" type="Light2D" parent="."]
 scale = Vector2( 13, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 5, 1 )
 texture_scale = 0.03
+
+[node name="ItemSpawn" parent="." instance=ExtResource( 1 )]
+position = Vector2( -219, 144 )
+
+[node name="ItemSpawn2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -113, 144 )
+
+[node name="ItemSpawn3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1, 145 )
+
+[node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, 145 )
+
+[node name="ItemSpawn5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 209, 146 )

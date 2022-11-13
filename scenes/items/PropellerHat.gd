@@ -1,4 +1,4 @@
-extends "res://items/Item.gd"
+extends "res://scenes/items/Item.gd"
 
 export (bool) var CAN_FLY = false
 

@@ -118,7 +118,7 @@ func dfs():
 
 		done_list.push_back(selected_room)
 
-	print(edge_list)
+	# print(edge_list)
 	return edge_list
 
 func neighbours_in_bounds(index):

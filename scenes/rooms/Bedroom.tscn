@@ -1,50 +1,76 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://scenes/HouseRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/rooms/Bedroom.gd" type="Script" id=2]
+[ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/BedroomR.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/props/bed.png" type="Texture" id=5]
 [ext_resource path="res://assets/props/chandelier.png" type="Texture" id=6]
 [ext_resource path="res://assets/lights/long_light.jpeg" type="Texture" id=7]
 
-[node name="Bedroom" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27, 10.5 )
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.5, 2.5 )
+
+[node name="Bedroom" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Bed" type="Sprite" parent="." index="1"]
+[node name="Bed" type="Sprite" parent="."]
 position = Vector2( -64, 170 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
-[node name="Light2D" type="Light2D" parent="." index="2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Bed"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/StaticBody2D"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bed/StaticBody2D"]
+position = Vector2( -21.5, -12.5 )
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 64, 19.2 )
 scale = Vector2( 25.6, 25.6 )
 texture = ExtResource( 4 )
 texture_scale = 0.03
 
-[node name="Light2D3" type="Light2D" parent="." index="3"]
+[node name="Light2D3" type="Light2D" parent="."]
 position = Vector2( 64, -192 )
 scale = Vector2( 25.6, -25.6 )
 texture = ExtResource( 4 )
 texture_scale = 0.03
 
-[node name="Sprite" type="Sprite" parent="." index="4"]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 64, -96 )
 texture = ExtResource( 6 )
 
-[node name="Light2D2" type="Light2D" parent="." index="5"]
+[node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( -224, 64 )
 rotation = 1.5708
 scale = Vector2( 1.3, 2.5 )
 texture = ExtResource( 7 )
 energy = 1.1
 
-[node name="Light2D4" type="Light2D" parent="." index="6"]
+[node name="Light2D4" type="Light2D" parent="."]
 position = Vector2( 0, 32 )
 scale = Vector2( 64, 64 )
 texture = ExtResource( 4 )
 texture_scale = 0.03
+
+[node name="ItemSpawn" parent="." instance=ExtResource( 1 )]
+position = Vector2( -78, 128 )
+
+[node name="ItemSpawn3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -138, 164 )
+
+[node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 21, 162 )
+
+[node name="ItemSpawn2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 128 )

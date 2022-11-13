@@ -3,7 +3,7 @@ extends Node2D
 
 func play_again():
 	GameState.reset()
-	get_tree().change_scene("res://scenes/Game.tscn")
+	GameState.start_next_level()
 
 
 func _on_PlayAgainButton_pressed():

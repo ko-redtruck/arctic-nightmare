@@ -1,4 +1,4 @@
-extends "res://items/Item.gd"
+extends "res://scenes/items/Item.gd"
 
 func use_on(player):
 	player.kill()

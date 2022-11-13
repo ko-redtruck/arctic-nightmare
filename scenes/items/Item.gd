@@ -19,5 +19,5 @@ func use_on(player):
 	print("Used on", player)
 	
 func is_usable():
-	print("is Usable")
+	# print("is Usable")
 	return true

@@ -1,4 +1,4 @@
-extends "res://items/Item.gd"
+extends "res://scenes/items/Item.gd"
 
 func is_bathtub_in_range():
 	for node in $EffectRadius.get_overlapping_bodies():

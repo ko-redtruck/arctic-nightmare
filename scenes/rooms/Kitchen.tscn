@@ -1,46 +1,71 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/HouseRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/rooms/Kitchen.gd" type="Script" id=2]
+[ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/rooms/KitchenR.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
-[ext_resource path="res://items/Toaster.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/lights/long_light.jpeg" type="Texture" id=6]
 [ext_resource path="res://assets/props/stove.png" type="Texture" id=7]
 
-[node name="Kitchen" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 22.75, 23.25 )
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 48 )
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Stove" type="Sprite" parent="." index="1"]
+[node name="Stove" type="Sprite" parent="."]
 position = Vector2( -96, 150 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 
-[node name="Light2D" type="Light2D" parent="." index="2"]
-visible = false
+[node name="StaticBody2D" type="StaticBody2D" parent="Stove"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove/StaticBody2D"]
+position = Vector2( 0.25, -2.25 )
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 64, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 1, 1 )
 texture_scale = 0.03
-energy = 0.7
+energy = 0.3
 
-[node name="Toaster" parent="." index="3" instance=ExtResource( 5 )]
-position = Vector2( -190, 75 )
-gravity_scale = 0.16
-sleeping = true
-
-[node name="Light2D2" type="Light2D" parent="." index="4"]
+[node name="Light2D2" type="Light2D" parent="."]
+scale = Vector2( 64, 64 )
 texture = ExtResource( 6 )
 offset = Vector2( -2, 0.5 )
 texture_scale = 0.02
 energy = 0.5
 
-[node name="Light2D3" type="Light2D" parent="." index="5"]
+[node name="Light2D3" type="Light2D" parent="."]
+scale = Vector2( 64, 64 )
 texture = ExtResource( 6 )
 offset = Vector2( -2, 0.5 )
 texture_scale = 0.05
 energy = 0.7
+
+[node name="ItemSpawn" parent="." instance=ExtResource( 1 )]
+position = Vector2( -119, 67 )
+
+[node name="ItemSpawn3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 73, -28 )
+
+[node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 132, -28 )
+
+[node name="ItemSpawn2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -75, 67 )
+
+[node name="Fridge" type="StaticBody2D" parent="."]
+position = Vector2( 105, 99 )
+scale = Vector2( 2, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 2 )

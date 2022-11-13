@@ -1,25 +1,40 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/HouseRoom.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/rooms/Garage.gd" type="Script" id=2]
+[ext_resource path="res://scenes/item_spawn.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/garage.png" type="Texture" id=3]
 [ext_resource path="res://assets/lights/ceiling_lightbeam.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/props/snowmobile.png" type="Texture" id=5]
 
-[node name="Garage" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Garage" type="Node2D"]
 
-[node name="Background" type="Sprite" parent="." index="0"]
+[node name="Background" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="." index="1"]
+[node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 64, 64 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 1 )
 texture_scale = 0.03
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -63, 136 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+polygon = PoolVector2Array( -7, -5.5, -10, 1.5, -5, 3, -6, 9.5, 0.5, 10, 14.5, 4.5, 25, 4.5, 27, 14, 31, 14, 31, 19, 24.5, 28, -32, 28, -32, 18, -22.5, 7.5, -14, 3, -13, -3 )
+
+[node name="ItemSpawn" parent="." instance=ExtResource( 1 )]
+position = Vector2( 27, 164 )
+
+[node name="ItemSpawn2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -151, 154 )
+
+[node name="ItemSpawn4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 117 )
+
+[node name="ItemSpawn3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -59, 129 )

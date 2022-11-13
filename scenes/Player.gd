@@ -89,9 +89,10 @@ func _physics_process(delta):
 		
 	move_and_slide(velocity, Vector2(0, -1))
 		
-	if is_on_floor():
-		velocity.y = 0
+	if is_on_floor() or is_on_ladder:
 		was_walljump_used = false
+	if is_on_floor() or is_on_ceiling():
+		velocity.y = 0
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor():
 			velocity.y = -JUMP_SPEED
