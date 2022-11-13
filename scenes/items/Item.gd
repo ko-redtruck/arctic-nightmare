@@ -2,11 +2,14 @@ extends RigidBody2D
 
 var item_name
 
-func is_in_effect_range(group: String):
+func get_in_effect_range(group: String):
 	for node in $EffectRadius.get_overlapping_bodies():
 		if node.is_in_group(group):
-			return true
-	return false
+			return node
+	return null
+
+func is_in_effect_range(group: String):
+	return get_in_effect_range(group) != null
 
 func pick_up_on(player):
 	print("Picked up by", player)
