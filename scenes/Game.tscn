@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/House.tscn" type="PackedScene" id=2]
@@ -6,9 +6,53 @@
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=4]
 [ext_resource path="res://assets/rooms/lab.png" type="Texture" id=5]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/SceneTransitionRect.gd" type="Script" id=7]
 [ext_resource path="res://scenes/SnowstormParticles.tscn" type="PackedScene" id=10]
 [ext_resource path="res://hud/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sounds/storm.wav" type="AudioStream" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("SceneTransitionRect:color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("SceneTransitionRect:color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("SceneTransitionRect:color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("SceneTransitionRect:color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -54,5 +98,15 @@ color = Color( 0.392157, 0.392157, 0.392157, 1 )
 stream = ExtResource( 12 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
+
+[node name="SceneTransitionRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneTransitionRect"]
+root_node = NodePath("../..")
+anims/FadeIn = SubResource( 1 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

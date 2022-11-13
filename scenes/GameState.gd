@@ -23,12 +23,19 @@ func start_level():
 
 func player_killed():
 	if isSleeping:
-		get_tree().change_scene("res://scenes/swapping_transition.tscn")
+		transition_to("res://scenes/swapping_transition.tscn")
+		#get_tree().change_scene("res://scenes/swapping_transition.tscn")
 	else:
-		get_tree().change_scene("res://scenes/dying_transition.tscn")
+		transition_to("res://scenes/dying_transition.tscn")
+		#get_tree().change_scene("res://scenes/dying_transition.tscn")
 
 func player_swapped():
 	if isSleeping:
-		get_tree().change_scene("res://scenes/dying_transition.tscn")
+		"res://scenes/dying_transition.tscn"
+		#get_tree().change_scene("res://scenes/dying_transition.tscn")
 	else:
-		get_tree().change_scene("res://scenes/swapping_transition.tscn")
+		#get_tree().change_scene("res://scenes/swapping_transition.tscn")
+		transition_to("res://scenes/swapping_transition.tscn")
+		
+func transition_to(nextScene):
+	get_tree().change_scene(nextScene)
