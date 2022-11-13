@@ -73,8 +73,19 @@ func get_nearest_item_in_world():
 					distance_to_nearest_item = distance_to_item
 	return nearest_item
 
-func _physics_process(delta):
 
+#Reset the inactivity timer if any input is pressed
+func _input(event):
+	if event.is_action_type():
+		$InactivityWinTimer.start()
+		print($InactivityWinTimer.time_left)
+
+func _on_InactivityWinTimer_timeout():
+	pass
+	#GameState.player_is_inactive()
+
+func _physics_process(delta):
+	print($InactivityWinTimer.time_left)
 	var walk_force = WALK_SPEED * (Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
 	if abs(walk_force) < 0.2 * WALK_SPEED:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
