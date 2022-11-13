@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/swapper_part2.mp3-28f82ba6671dd24c1b2515b521c7f10d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/swapper_part2.mp3"
+dest_files=[ "res://.import/swapper_part2.mp3-28f82ba6671dd24c1b2515b521c7f10d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
