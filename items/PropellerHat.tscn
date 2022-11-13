@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://items/PropellerHat.gd" type="Script" id=2]
+
+[node name="PropellerHat" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+can_fly = true
+FLY_FORCE = 20.0
+
+[node name="CooldownTimer" type="Timer" parent="." index="3"]
+wait_time = 3.0
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]
