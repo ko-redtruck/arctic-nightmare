@@ -19,5 +19,5 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -0.1, -1.75, 0.1, -1.75, 0.1, 1.75, -0.1, 1.75 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
-scale = Vector2( 0.031, 0.031 )
+scale = Vector2( 0.042, 0.031 )
 texture = ExtResource( 1 )

@@ -21,6 +21,7 @@ orbit_velocity_random = 0.0
 position = Vector2( -24, 0 )
 z_index = -1
 amount = 10000
+preprocess = 10.0
 speed_scale = 0.1
 lifetime_randomness = 0.09
 emission_shape = 2
