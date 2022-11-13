@@ -15,3 +15,4 @@ func _on_PlayIntroButton_pressed():
 
 func _on_Death_count_ready():
 	$Death_count.text = "Death count: " + str(GameState.death_count)
+

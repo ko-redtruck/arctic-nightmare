@@ -1,13 +1,12 @@
 extends Node
 
 onready var all = [
-	#StrongGravityEffect.new(),
-	#LowGravityEffect.new(),
+	StrongGravityEffect.new(),
+	LowGravityEffect.new(),
 	NoGravityEffect.new(),
 	AntiGravityEffect.new(),
 	BounceEffect.new(),
-	#NoFrictionEffect.new(),
-	#NegativeFrictionEffect.new(),
+	NegativeFrictionEffect.new(),
 ]
 
 class Effect:
@@ -20,11 +19,11 @@ class Effect:
 
 class StrongGravityEffect extends Effect:
 	func apply(obj: RigidBody2D):
-		obj.gravity_scale *= 1.6
+		obj.gravity_scale *= 2.5
 
 class LowGravityEffect extends Effect:
 	func apply(obj: RigidBody2D):
-		obj.gravity_scale *= 0.4
+		obj.gravity_scale *= 0.1
 
 class NoGravityEffect extends Effect:
 	func apply(obj: RigidBody2D):
