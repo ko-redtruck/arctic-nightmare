@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/self_immolation_part2.mp3-657ea98f1c3d507404698ae648365875.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/self_immolation_part2.mp3"
+dest_files=[ "res://.import/self_immolation_part2.mp3-657ea98f1c3d507404698ae648365875.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

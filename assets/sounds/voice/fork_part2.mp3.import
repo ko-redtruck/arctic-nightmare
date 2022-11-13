@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fork_part2.mp3-9fe29bdade32e1e228a22ece3e322aa5.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/fork_part2.mp3"
+dest_files=[ "res://.import/fork_part2.mp3-9fe29bdade32e1e228a22ece3e322aa5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

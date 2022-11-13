@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/electricity_part2.mp3-6a42a8c40d156df12a74ec74e0536708.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/electricity_part2.mp3"
+dest_files=[ "res://.import/electricity_part2.mp3-6a42a8c40d156df12a74ec74e0536708.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

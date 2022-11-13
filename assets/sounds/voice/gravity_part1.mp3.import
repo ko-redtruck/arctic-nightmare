@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gravity_part1.mp3-a251e746a200f8a4377c404f379fe5e2.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/voice/gravity_part1.mp3"
+dest_files=[ "res://.import/gravity_part1.mp3-a251e746a200f8a4377c404f379fe5e2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
