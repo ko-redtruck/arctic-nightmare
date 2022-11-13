@@ -49,4 +49,6 @@ stream = ExtResource( 12 )
 
 [node name="VoicePlayer" parent="." instance=ExtResource( 6 )]
 
+[node name="VoiceLineTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="StormCountdown" to="." method="_on_StormCountdown_timeout"]
