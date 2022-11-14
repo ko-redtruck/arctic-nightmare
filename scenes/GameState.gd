@@ -14,8 +14,8 @@ func _ready():
 	reset()
 
 func is_in_random_sleep_state():
-	#1/self.iteration +1 chance
-	return self.isSleeping and rand_range(0, self.iteration - 1) == 0
+  randomize()
+  return self.isSleeping and rand_range(0, 1.0) <= pow(2.718281828,-(self.iteration - 1)/ 7)
 
 func reset():
 	iteration = 0
